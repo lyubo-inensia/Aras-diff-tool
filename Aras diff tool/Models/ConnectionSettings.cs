@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ArasDiffTool
+namespace ArasDiffTool.Models
 {
     public class ConnectionSettings
     {

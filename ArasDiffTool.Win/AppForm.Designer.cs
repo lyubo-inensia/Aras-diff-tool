@@ -1,7 +1,7 @@
 ﻿
 namespace ArasDiffTool.Win
 {
-    partial class formMain
+    partial class AppForm
     {
         /// <summary>
         /// Required designer variable.

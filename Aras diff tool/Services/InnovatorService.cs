@@ -1,9 +1,10 @@
 ﻿using Aras.IOM;
+using ArasDiffTool.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ArasDiffTool
+namespace ArasDiffTool.Services
 {
     public class InnovatorService
     {

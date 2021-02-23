@@ -1,7 +1,7 @@
 ﻿
 namespace ArasDiffTool.Win
 {
-    partial class formConnections
+    partial class SettingsConnections
     {
         /// <summary>
         /// Required designer variable.

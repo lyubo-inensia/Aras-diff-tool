@@ -16,63 +16,291 @@
       }
     ],
   "ItemTypes": [
-    "gn_GraphViewDefinition",
-    "gn_ViewCard",
-    "GlobalPresentationConfig",
-    "Dashboard",
-    "DatabaseUpgrade",
-    "dr_RelationshipFamily",
-    "PackageDefinition",
-    "qry_QueryDefinition",
-    "rb_TreeGridViewDefinition",
-    "cmf_Style",
-    "cmf_ContentType",
-    "effs_scope",
-    "effs_variable",
-    "effs_model",
-    "ES_Agent",
-    "ES_Crawler",
-    "ConversionRule",
-    "ConversionServer",
-    "ConversionTask",
-    "ConverterType",
-    "FileType",
-    "Vault",
-    "Viewer",
-    "Language",
-    "Locale",
-    "mpo_MassPromotion",
-    "EMail Message",
-    "Message",
-    "SystemEvent",
-    "WMSettings",
-    "WMSet",
-    "WMType",
-    "Action",
-    "CommandBarItem",
-    "CommandBarSection",
-    "CommandBarButton",
-    "CommandBarMenuButton",
-    "PresentationConfiguration",
-    "Form",
-    "Grid",
-    "Identity",
-    "ItemType",
-    "Life Cycle Map",
-    "List",
-    "Method",
-    "Permission",
-    "Preference",
-    "RelationshipType",
-    "Report",
-    "Revision",
-    "SavedSearch",
-    "Sequence",
-    "SQL",
-    "Team",
-    "User",
-    "Variable",
-    "Workflow Map"
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "gn_GraphViewDefinition"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "gn_ViewCard"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "GlobalPresentationConfig"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Dashboard"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "DatabaseUpgrade"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "dr_RelationshipFamily"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "PackageDefinition"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "qry_QueryDefinition"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "rb_TreeGridViewDefinition"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "cmf_Style"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "cmf_ContentType"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "effs_scope"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "effs_variable"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "effs_model"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ES_Agent"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ES_Crawler"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ConversionRule"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ConversionServer"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ConversionTask"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ConverterType"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "FileType"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Vault"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Viewer"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Language"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Locale"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "mpo_MassPromotion"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "EMail Message"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Message"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "SystemEvent"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "WMSettings"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "WMSet"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "WMType"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Action"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "CommandBarItem"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "CommandBarSection"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "CommandBarButton"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "CommandBarMenuButton"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "PresentationConfiguration"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Form"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Grid"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Identity"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "ItemType"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Life Cycle Map"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "List"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Method"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Permission"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Preference"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "RelationshipType"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Report"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Revision"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "SavedSearch"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Sequence"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "SQL"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Team"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "User"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Variable"
+    },
+    {
+      "Property": "name",
+      "Checked": true,
+      "ItemType": "Workflow Map"
+    }
   ],
   "Conn1Selected": "",
   "Conn2Selected" :  ""

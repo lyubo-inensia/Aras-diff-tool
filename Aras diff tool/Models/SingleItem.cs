@@ -1,7 +1,7 @@
 ﻿using Aras.IOM;
 using System;
 
-namespace ArasDiffTool
+namespace ArasDiffTool.Models
 {
     public class SingleItem
     {

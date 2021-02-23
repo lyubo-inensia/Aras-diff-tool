@@ -1,9 +1,10 @@
 ﻿using Aras.IOM;
+using ArasDiffTool.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ArasDiffTool
+namespace ArasDiffTool.Services
 {
     public class DiffService
     {

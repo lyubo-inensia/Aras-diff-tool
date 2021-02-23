@@ -1,26 +1,23 @@
-﻿using System;
+﻿using ArasDiffTool.Models;
+using ArasDiffTool.Services;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArasDiffTool.Win
 {
-    public partial class formConnections : Form
+    public partial class SettingsConnections : Form
     {
-        public formConnections()
+        public SettingsConnections()
         {
             InitializeComponent();
-            mainForm = (formMain)Application.OpenForms[0];
+            mainForm = (AppForm)Application.OpenForms[0];
             settings = mainForm.Settings;
         }
 
         Settings settings;
-        formMain mainForm;
+        AppForm mainForm;
 
         void ReloadSettings()
         {

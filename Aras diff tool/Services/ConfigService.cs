@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using ArasDiffTool.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace ArasDiffTool
+namespace ArasDiffTool.Services
 {
     public class ConfigService
     {
@@ -68,7 +69,7 @@ namespace ArasDiffTool
             {
 
                 ret = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Filename));
-                var sorted = ret.ItemTypes.ToList().OrderBy(str => str, StringComparer.CurrentCultureIgnoreCase).ToList();
+                var sorted = ret.ItemTypes.ToList().OrderBy(str => str.ToString(), StringComparer.CurrentCultureIgnoreCase).ToList();
                 ret.ItemTypes = sorted;
             }
             catch (Exception ex)

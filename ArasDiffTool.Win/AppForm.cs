@@ -1,18 +1,18 @@
-﻿using System;
+﻿using ArasDiffTool.Models;
+using ArasDiffTool.Services;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArasDiffTool.Win
 {
-    public partial class formMain : Form
+    public partial class AppForm : Form
     {
-        public formMain()
+        public AppForm()
         {
             LoadSettings();
             InitializeComponent();
@@ -56,10 +56,9 @@ namespace ArasDiffTool.Win
             ddlConnection2.Items.AddRange(tmp);
             ddlConnection3.Items.AddRange(tmp);
         }
-        void PopulateItemTypes()
+        public void PopulateItemTypes()
         {
             chkItemTypes.Items.Clear();
-            //chkItemTypes.Items.Add("Check/uncheck all", true);
             foreach (var item in Settings.ItemTypes)
             {
                 chkItemTypes.Items.Add(item, true);
@@ -202,13 +201,14 @@ namespace ArasDiffTool.Win
 
         private void connectionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var f = new formConnections();
+            var f = new SettingsConnections();
             f.ShowDialog();
         }
 
         private void itemTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var f = new SettingsItemTypes();
+            f.ShowDialog();
         }
 
         private async void btnReload_Click(object sender, EventArgs e)
