@@ -1,4 +1,4 @@
-﻿"gn_GraphViewDefinition",
+﻿["gn_GraphViewDefinition",
 "gn_ViewCard",
 "GlobalPresentationConfig",
 "Dashboard",
@@ -54,4 +54,4 @@
 "Team",
 "User",
 "Variable",
-"Workflow Map"
+"Workflow Map"]

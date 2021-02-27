@@ -29,8 +29,8 @@ namespace ArasDiffTool.Win
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCompare = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -43,6 +43,7 @@ namespace ArasDiffTool.Win
             this.colCreated1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreated2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
             this.chkTo1 = new System.Windows.Forms.CheckBox();
             this.chkFrom1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,6 +70,7 @@ namespace ArasDiffTool.Win
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ddlConnection3 = new System.Windows.Forms.ComboBox();
             this.lblDb3 = new System.Windows.Forms.Label();
@@ -92,24 +94,23 @@ namespace ArasDiffTool.Win
             this.panel4 = new System.Windows.Forms.Panel();
             this.itemTypesGroup = new System.Windows.Forms.GroupBox();
             this.chkItemTypes = new System.Windows.Forms.CheckedListBox();
-            this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
-            this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
+            this.btnCheckAll = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabCompare.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
             this.conn2Group.SuspendLayout();
             this.conn1Group.SuspendLayout();
             this.tabChanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.itemTypesGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -228,6 +229,16 @@ namespace ArasDiffTool.Win
             this.panel2.Size = new System.Drawing.Size(1076, 102);
             this.panel2.TabIndex = 12;
             // 
+            // imgLoadingCompare
+            // 
+            this.imgLoadingCompare.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
+            this.imgLoadingCompare.Location = new System.Drawing.Point(752, 78);
+            this.imgLoadingCompare.Name = "imgLoadingCompare";
+            this.imgLoadingCompare.Size = new System.Drawing.Size(158, 16);
+            this.imgLoadingCompare.TabIndex = 12;
+            this.imgLoadingCompare.TabStop = false;
+            this.imgLoadingCompare.Visible = false;
+            // 
             // chkTo1
             // 
             this.chkTo1.AutoSize = true;
@@ -280,7 +291,6 @@ namespace ArasDiffTool.Win
             // 
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Location = new System.Drawing.Point(689, 12);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -430,22 +440,22 @@ namespace ArasDiffTool.Win
             // 
             this.gridCheck.AllowUserToAddRows = false;
             this.gridCheck.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.gridCheck.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.gridCheck.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.gridCheck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCheck.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn6});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridCheck.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridCheck.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCheck.Location = new System.Drawing.Point(3, 105);
             this.gridCheck.Name = "gridCheck";
@@ -495,6 +505,16 @@ namespace ArasDiffTool.Win
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1076, 102);
             this.panel1.TabIndex = 13;
+            // 
+            // imgLoadingCheck
+            // 
+            this.imgLoadingCheck.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
+            this.imgLoadingCheck.Location = new System.Drawing.Point(711, 78);
+            this.imgLoadingCheck.Name = "imgLoadingCheck";
+            this.imgLoadingCheck.Size = new System.Drawing.Size(158, 16);
+            this.imgLoadingCheck.TabIndex = 13;
+            this.imgLoadingCheck.TabStop = false;
+            this.imgLoadingCheck.Visible = false;
             // 
             // groupBox1
             // 
@@ -584,7 +604,6 @@ namespace ArasDiffTool.Win
             // dateCheckFrom
             // 
             this.dateCheckFrom.Location = new System.Drawing.Point(669, 12);
-            this.dateCheckFrom.MaxDate = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
             this.dateCheckFrom.Name = "dateCheckFrom";
             this.dateCheckFrom.Size = new System.Drawing.Size(200, 20);
             this.dateCheckFrom.TabIndex = 6;
@@ -687,6 +706,7 @@ namespace ArasDiffTool.Win
             // itemTypesGroup
             // 
             this.itemTypesGroup.Controls.Add(this.chkItemTypes);
+            this.itemTypesGroup.Controls.Add(this.btnCheckAll);
             this.itemTypesGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.itemTypesGroup.Location = new System.Drawing.Point(10, 10);
             this.itemTypesGroup.Margin = new System.Windows.Forms.Padding(10);
@@ -702,34 +722,26 @@ namespace ArasDiffTool.Win
             this.chkItemTypes.CheckOnClick = true;
             this.chkItemTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkItemTypes.FormattingEnabled = true;
-            this.chkItemTypes.Location = new System.Drawing.Point(10, 23);
+            this.chkItemTypes.Location = new System.Drawing.Point(10, 46);
             this.chkItemTypes.Margin = new System.Windows.Forms.Padding(10);
             this.chkItemTypes.Name = "chkItemTypes";
-            this.chkItemTypes.Size = new System.Drawing.Size(160, 662);
+            this.chkItemTypes.Size = new System.Drawing.Size(160, 639);
             this.chkItemTypes.Sorted = true;
             this.chkItemTypes.TabIndex = 0;
             // 
-            // imgLoadingCompare
+            // btnCheckAll
             // 
-            this.imgLoadingCompare.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
-            this.imgLoadingCompare.Location = new System.Drawing.Point(752, 78);
-            this.imgLoadingCompare.Name = "imgLoadingCompare";
-            this.imgLoadingCompare.Size = new System.Drawing.Size(158, 16);
-            this.imgLoadingCompare.TabIndex = 12;
-            this.imgLoadingCompare.TabStop = false;
-            this.imgLoadingCompare.Visible = false;
+            this.btnCheckAll.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheckAll.Location = new System.Drawing.Point(10, 23);
+            this.btnCheckAll.Name = "btnCheckAll";
+            this.btnCheckAll.Size = new System.Drawing.Size(160, 23);
+            this.btnCheckAll.TabIndex = 1;
+            this.btnCheckAll.Tag = "0";
+            this.btnCheckAll.Text = "Uncheck all";
+            this.btnCheckAll.UseVisualStyleBackColor = true;
+            this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
             // 
-            // imgLoadingCheck
-            // 
-            this.imgLoadingCheck.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
-            this.imgLoadingCheck.Location = new System.Drawing.Point(711, 78);
-            this.imgLoadingCheck.Name = "imgLoadingCheck";
-            this.imgLoadingCheck.Size = new System.Drawing.Size(158, 16);
-            this.imgLoadingCheck.TabIndex = 13;
-            this.imgLoadingCheck.TabStop = false;
-            this.imgLoadingCheck.Visible = false;
-            // 
-            // formMain
+            // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -739,7 +751,7 @@ namespace ArasDiffTool.Win
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1000, 500);
-            this.Name = "formMain";
+            this.Name = "AppForm";
             this.Text = "Innovator Diff Tool";
             this.Load += new System.EventHandler(this.formMain_Load);
             this.tabControl1.ResumeLayout(false);
@@ -748,6 +760,7 @@ namespace ArasDiffTool.Win
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
             this.conn2Group.ResumeLayout(false);
             this.conn2Group.PerformLayout();
             this.conn1Group.ResumeLayout(false);
@@ -756,14 +769,13 @@ namespace ArasDiffTool.Win
             ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.itemTypesGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -834,6 +846,7 @@ namespace ArasDiffTool.Win
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.PictureBox imgLoadingCompare;
         private System.Windows.Forms.PictureBox imgLoadingCheck;
+        private System.Windows.Forms.Button btnCheckAll;
     }
 }
 

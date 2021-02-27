@@ -1,10 +1,12 @@
 ﻿using ArasDiffTool.Models;
 using ArasDiffTool.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ namespace ArasDiffTool.Win
     {
         private AppForm mainForm;
         private Settings settings;
+        private bool gridDirty = false;
 
         public SettingsItemTypes()
         {
@@ -23,6 +26,16 @@ namespace ArasDiffTool.Win
             mainForm = (AppForm)Application.OpenForms[0];
             LoadSettings();
             LoadGrid();
+            gridTypes.CurrentCellDirtyStateChanged += GridTypes_CurrentCellDirtyStateChanged;
+        }
+
+        private void GridTypes_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            //var cell = (DataGridViewCell) sender;
+            //if (gridTypes.Row)
+            //{
+            //    gridDirty = true;
+            //}
         }
 
         private void LoadGrid()
@@ -37,6 +50,7 @@ namespace ArasDiffTool.Win
             {
                 gridTypes.Rows.Add(new object[] { item.ItemType, item.Property, item.Checked });
             }
+            gridDirty = false;
         }
 
         private void LoadSettings()
@@ -44,7 +58,20 @@ namespace ArasDiffTool.Win
             settings = (new ConfigService()).GetSettings();
         }
 
+        bool IsGridDirty(DataGridView grid)
+        {
+            var ret = false;
+            foreach(var obj in grid.Rows)
+            {
+                var row = (DataRowView) obj;
+                if (row.Row.RowState == DataRowState.Added || row.Row.RowState == DataRowState.Modified)
+                {
 
+                }
+            }
+
+            return ret;
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -60,13 +87,49 @@ namespace ArasDiffTool.Win
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            List<ItemTypeSetting> types = new List<ItemTypeSetting>();
+            var confService = new ConfigService();
+            foreach (var item in gridTypes.Rows)
+            {
+                var row = ((DataGridViewRow)item);
+                if (row.Cells[0].Value == null)
+                {
+                    continue;
+                }
+                try
+                {
+                    types.Add(new ItemTypeSetting
+                    {
+                        ItemType = ((DataGridViewTextBoxCell)row.Cells[0]).Value.ToString(),
+                        Property = ((DataGridViewTextBoxCell)row.Cells[1]).Value.ToString(),
+                        Checked = Convert.ToBoolean(((DataGridViewCheckBoxCell)row.Cells[2]).Value ?? "true")
+                    });
+                    
+                }
+                catch { }
+            }
+            settings.ItemTypes = types;
+            confService.SaveSettings(settings);
 
             CloseReloadSettings();
         }
 
         private void btnDefaults_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var data = JsonConvert.DeserializeObject<IEnumerable<string>>(File.ReadAllText("default_item_types.txt"));
+                List<ItemTypeSetting> types = new List<ItemTypeSetting>();
+                foreach (var str in data)
+                {
+                    types.Add(new ItemTypeSetting { ItemType = str.Trim(), Property = "name", Checked = true });
+                }
+                LoadGrid(types);
+            }
+            catch (Exception)
+            {
 
+            }
         }
     }
 }

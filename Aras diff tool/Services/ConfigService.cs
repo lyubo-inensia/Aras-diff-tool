@@ -23,6 +23,20 @@ namespace ArasDiffTool.Services
             {
                 var settings = GetSettings();
                 settings.Connections = connections;
+                ret = SaveSettings(settings);
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return ret;
+        }
+
+        public bool SaveSettings(Settings settings)
+        {
+            var ret = false;
+            try
+            {
                 var json = JsonConvert.SerializeObject(settings);
                 try
                 {
@@ -30,7 +44,7 @@ namespace ArasDiffTool.Services
                 }
                 catch (Exception)
                 {
-                                    }
+                }
                 File.WriteAllText(Filename, json);
                 ret = true;
             }

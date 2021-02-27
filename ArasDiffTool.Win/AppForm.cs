@@ -65,11 +65,11 @@ namespace ArasDiffTool.Win
             }
         }
 
-        IEnumerable<string> GetSelectedTypes()
+        IEnumerable<ItemTypeSetting> GetSelectedTypes()
         {
             foreach (var item in chkItemTypes.CheckedItems)
             {
-                yield return item.ToString();
+                yield return (ItemTypeSetting)item;
             }
         }
 
@@ -307,6 +307,27 @@ namespace ArasDiffTool.Win
             }
             imgLoadingCheck.Visible = true;
             await Task.Run(() => LoadData2Async());
+        }
+
+        private void btnCheckAll_Click(object sender, EventArgs e)
+        {
+            var btn = ((Button)sender);
+            var isChecked = false;
+            var txt = "Check all";
+            var tag = "1";
+            if (btn.Tag.ToString() == "1")
+            {
+                tag = "0";
+                txt = "Uncheck all";
+                isChecked = true;
+            }
+            btn.Tag = tag;
+            btn.Text = txt;
+            for (int i = 0; i < chkItemTypes.Items.Count; i++)
+            {
+                ((ItemTypeSetting)chkItemTypes.Items[i]).Checked = isChecked;
+                chkItemTypes.SetItemChecked(i, isChecked);
+            } 
         }
     }
 }

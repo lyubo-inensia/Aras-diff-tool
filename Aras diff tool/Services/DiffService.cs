@@ -46,11 +46,11 @@ namespace ArasDiffTool.Services
             }
             if (from.HasValue)
             {
-                ret = ret.Where(e => e.CreatedDate1 >= from).ToList();
+                ret = ret.Where(e => e.ModifiedDate1 >= from).ToList();
             }
             if (to.HasValue)
             {
-                ret = ret.Where(e => e.CreatedDate1 <= to).ToList();
+                ret = ret.Where(e => e.ModifiedDate1 <= to).ToList();
             }
 
             return ret;
@@ -69,8 +69,8 @@ namespace ArasDiffTool.Services
             {
                 ret.Add(new SingleItem(data1[name]));
             }
-            ret = ret.Where(e => e.CreatedDate >= from).ToList();
-            ret = ret.Where(e => e.CreatedDate <= to).ToList();
+            ret = ret.Where(e => e.ModifiedDate >= from).ToList();
+            ret = ret.Where(e => e.ModifiedDate <= to).ToList();
             
             return ret;
         }
@@ -80,7 +80,7 @@ namespace ArasDiffTool.Services
             Dictionary<string, Item> ret = new Dictionary<string, Item>();
             foreach (var item in items)
             {
-                string key = item.getProperty("name", "");
+                string key = item.getProperty(item.getProperty("diff_name_prop", "name"), "");
                 if (!ret.ContainsKey(key))
                 {
                     ret.Add(key, item);

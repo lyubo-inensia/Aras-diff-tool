@@ -56,12 +56,12 @@ namespace ArasDiffTool.Services
 
             return ret;
         }
-        public async Task<IEnumerable<Item>> GetItemsAsync(IEnumerable<string> itemTypes)
+        public async Task<IEnumerable<Item>> GetItemsAsync(IEnumerable<ItemTypeSetting> itemTypes)
         {
             var ret = new List<Item>();
             foreach (var itemType in itemTypes)
             {
-                var tmp = itemType.Trim().Replace(" ", "_");
+                var tmp = itemType.ItemType.Trim().Replace(" ", "_");
                 var items = Inn.newItem(tmp, "get");
                 items = items.apply();
                 if (items.isError())
@@ -71,7 +71,9 @@ namespace ArasDiffTool.Services
                 var c = items.getItemCount();
                 for (int i = 0; i < c; i++)
                 {
-                    ret.Add(items.getItemByIndex(i));
+                    var tmpItem = items.getItemByIndex(i);
+                    tmpItem.setProperty("diff_name_prop", itemType.Property);
+                    ret.Add(tmpItem);
                 }
             }
 
