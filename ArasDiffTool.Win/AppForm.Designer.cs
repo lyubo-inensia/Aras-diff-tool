@@ -122,7 +122,7 @@ namespace ArasDiffTool.Win
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1090, 715);
-            this.tabControl1.TabIndex = 6;
+            this.tabControl1.TabIndex = 0;
             // 
             // tabCompare
             // 
@@ -163,7 +163,7 @@ namespace ArasDiffTool.Win
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.Size = new System.Drawing.Size(1076, 581);
-            this.grid.TabIndex = 2;
+            this.grid.TabIndex = 20;
             // 
             // comType
             // 
@@ -245,7 +245,7 @@ namespace ArasDiffTool.Win
             this.chkTo1.Location = new System.Drawing.Point(895, 50);
             this.chkTo1.Name = "chkTo1";
             this.chkTo1.Size = new System.Drawing.Size(15, 14);
-            this.chkTo1.TabIndex = 11;
+            this.chkTo1.TabIndex = 5;
             this.chkTo1.UseVisualStyleBackColor = true;
             this.chkTo1.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
@@ -255,7 +255,7 @@ namespace ArasDiffTool.Win
             this.chkFrom1.Location = new System.Drawing.Point(896, 18);
             this.chkFrom1.Name = "chkFrom1";
             this.chkFrom1.Size = new System.Drawing.Size(15, 14);
-            this.chkFrom1.TabIndex = 10;
+            this.chkFrom1.TabIndex = 3;
             this.chkFrom1.UseVisualStyleBackColor = true;
             this.chkFrom1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -284,7 +284,7 @@ namespace ArasDiffTool.Win
             this.dateTimePicker2.Location = new System.Drawing.Point(689, 48);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 7;
+            this.dateTimePicker2.TabIndex = 6;
             this.dateTimePicker2.Tag = "";
             // 
             // dateTimePicker1
@@ -293,7 +293,7 @@ namespace ArasDiffTool.Win
             this.dateTimePicker1.Location = new System.Drawing.Point(689, 12);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 4;
             this.dateTimePicker1.Value = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
             // 
             // btnReload
@@ -303,7 +303,7 @@ namespace ArasDiffTool.Win
             this.btnReload.Location = new System.Drawing.Point(920, 0);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(156, 102);
-            this.btnReload.TabIndex = 5;
+            this.btnReload.TabIndex = 15;
             this.btnReload.Text = "COMPARE";
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
@@ -329,7 +329,7 @@ namespace ArasDiffTool.Win
             this.ddlConnection2.Location = new System.Drawing.Point(9, 19);
             this.ddlConnection2.Name = "ddlConnection2";
             this.ddlConnection2.Size = new System.Drawing.Size(247, 21);
-            this.ddlConnection2.TabIndex = 5;
+            this.ddlConnection2.TabIndex = 2;
             this.ddlConnection2.SelectedIndexChanged += new System.EventHandler(this.ddlConnection2_SelectedIndexChanged);
             // 
             // lblDb2
@@ -387,7 +387,7 @@ namespace ArasDiffTool.Win
             this.ddlConnection1.Location = new System.Drawing.Point(9, 19);
             this.ddlConnection1.Name = "ddlConnection1";
             this.ddlConnection1.Size = new System.Drawing.Size(247, 21);
-            this.ddlConnection1.TabIndex = 4;
+            this.ddlConnection1.TabIndex = 1;
             this.ddlConnection1.SelectedIndexChanged += new System.EventHandler(this.ddlConnection1_SelectedIndexChanged);
             // 
             // lblDb1
@@ -537,7 +537,7 @@ namespace ArasDiffTool.Win
             this.ddlConnection3.Location = new System.Drawing.Point(9, 19);
             this.ddlConnection3.Name = "ddlConnection3";
             this.ddlConnection3.Size = new System.Drawing.Size(247, 21);
-            this.ddlConnection3.TabIndex = 4;
+            this.ddlConnection3.TabIndex = 10;
             this.ddlConnection3.SelectedIndexChanged += new System.EventHandler(this.ddlConnection3_SelectedIndexChanged);
             // 
             // lblDb3
@@ -598,7 +598,7 @@ namespace ArasDiffTool.Win
             this.dateCheckTo.Location = new System.Drawing.Point(669, 46);
             this.dateCheckTo.Name = "dateCheckTo";
             this.dateCheckTo.Size = new System.Drawing.Size(200, 20);
-            this.dateCheckTo.TabIndex = 7;
+            this.dateCheckTo.TabIndex = 12;
             this.dateCheckTo.Tag = "";
             // 
             // dateCheckFrom
@@ -606,7 +606,7 @@ namespace ArasDiffTool.Win
             this.dateCheckFrom.Location = new System.Drawing.Point(669, 12);
             this.dateCheckFrom.Name = "dateCheckFrom";
             this.dateCheckFrom.Size = new System.Drawing.Size(200, 20);
-            this.dateCheckFrom.TabIndex = 6;
+            this.dateCheckFrom.TabIndex = 11;
             this.dateCheckFrom.Value = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
             // 
             // btnCheck
@@ -616,7 +616,7 @@ namespace ArasDiffTool.Win
             this.btnCheck.Location = new System.Drawing.Point(920, 0);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(156, 102);
-            this.btnCheck.TabIndex = 5;
+            this.btnCheck.TabIndex = 15;
             this.btnCheck.Text = "CHECK";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
@@ -727,7 +727,7 @@ namespace ArasDiffTool.Win
             this.chkItemTypes.Name = "chkItemTypes";
             this.chkItemTypes.Size = new System.Drawing.Size(160, 639);
             this.chkItemTypes.Sorted = true;
-            this.chkItemTypes.TabIndex = 0;
+            this.chkItemTypes.TabIndex = 14;
             // 
             // btnCheckAll
             // 
@@ -735,7 +735,7 @@ namespace ArasDiffTool.Win
             this.btnCheckAll.Location = new System.Drawing.Point(10, 23);
             this.btnCheckAll.Name = "btnCheckAll";
             this.btnCheckAll.Size = new System.Drawing.Size(160, 23);
-            this.btnCheckAll.TabIndex = 1;
+            this.btnCheckAll.TabIndex = 13;
             this.btnCheckAll.Tag = "0";
             this.btnCheckAll.Text = "Uncheck all";
             this.btnCheckAll.UseVisualStyleBackColor = true;

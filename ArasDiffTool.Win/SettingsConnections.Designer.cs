@@ -30,6 +30,7 @@ namespace ArasDiffTool.Win
         private void InitializeComponent()
         {
             this.pnlConn1 = new System.Windows.Forms.GroupBox();
+            this.txtConn1Name = new System.Windows.Forms.TextBox();
             this.btnConn1Test = new System.Windows.Forms.Button();
             this.btnConn1Delete = new System.Windows.Forms.Button();
             this.btnConn1Save = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@ namespace ArasDiffTool.Win
             this.txtConn1Pass = new System.Windows.Forms.TextBox();
             this.txtConn1Url = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
-            this.txtConn1Name = new System.Windows.Forms.TextBox();
             this.groupSaved = new System.Windows.Forms.GroupBox();
             this.lstSaved = new System.Windows.Forms.ListBox();
             this.pnlConn1.SuspendLayout();
@@ -72,12 +72,19 @@ namespace ArasDiffTool.Win
             this.pnlConn1.TabStop = false;
             this.pnlConn1.Text = "Connection settings";
             // 
+            // txtConn1Name
+            // 
+            this.txtConn1Name.Location = new System.Drawing.Point(24, 51);
+            this.txtConn1Name.Name = "txtConn1Name";
+            this.txtConn1Name.Size = new System.Drawing.Size(224, 20);
+            this.txtConn1Name.TabIndex = 1;
+            // 
             // btnConn1Test
             // 
             this.btnConn1Test.Location = new System.Drawing.Point(24, 287);
             this.btnConn1Test.Name = "btnConn1Test";
             this.btnConn1Test.Size = new System.Drawing.Size(55, 23);
-            this.btnConn1Test.TabIndex = 11;
+            this.btnConn1Test.TabIndex = 6;
             this.btnConn1Test.Text = "Test";
             this.btnConn1Test.UseVisualStyleBackColor = true;
             this.btnConn1Test.Click += new System.EventHandler(this.btnConn1Test_Click);
@@ -87,7 +94,7 @@ namespace ArasDiffTool.Win
             this.btnConn1Delete.Location = new System.Drawing.Point(173, 287);
             this.btnConn1Delete.Name = "btnConn1Delete";
             this.btnConn1Delete.Size = new System.Drawing.Size(75, 23);
-            this.btnConn1Delete.TabIndex = 10;
+            this.btnConn1Delete.TabIndex = 8;
             this.btnConn1Delete.Text = "Delete";
             this.btnConn1Delete.UseVisualStyleBackColor = true;
             this.btnConn1Delete.Click += new System.EventHandler(this.btnConn1Delete_Click);
@@ -97,7 +104,7 @@ namespace ArasDiffTool.Win
             this.btnConn1Save.Location = new System.Drawing.Point(92, 287);
             this.btnConn1Save.Name = "btnConn1Save";
             this.btnConn1Save.Size = new System.Drawing.Size(75, 23);
-            this.btnConn1Save.TabIndex = 6;
+            this.btnConn1Save.TabIndex = 7;
             this.btnConn1Save.Text = "Save";
             this.btnConn1Save.UseVisualStyleBackColor = true;
             this.btnConn1Save.Click += new System.EventHandler(this.btnConn1Save_Click);
@@ -152,45 +159,38 @@ namespace ArasDiffTool.Win
             this.txtConn1Db.Location = new System.Drawing.Point(24, 146);
             this.txtConn1Db.Name = "txtConn1Db";
             this.txtConn1Db.Size = new System.Drawing.Size(224, 20);
-            this.txtConn1Db.TabIndex = 4;
+            this.txtConn1Db.TabIndex = 3;
             // 
             // txtConn1User
             // 
             this.txtConn1User.Location = new System.Drawing.Point(24, 193);
             this.txtConn1User.Name = "txtConn1User";
             this.txtConn1User.Size = new System.Drawing.Size(224, 20);
-            this.txtConn1User.TabIndex = 3;
+            this.txtConn1User.TabIndex = 4;
             // 
             // txtConn1Pass
             // 
             this.txtConn1Pass.Location = new System.Drawing.Point(24, 240);
             this.txtConn1Pass.Name = "txtConn1Pass";
             this.txtConn1Pass.Size = new System.Drawing.Size(224, 20);
-            this.txtConn1Pass.TabIndex = 2;
+            this.txtConn1Pass.TabIndex = 5;
             // 
             // txtConn1Url
             // 
             this.txtConn1Url.Location = new System.Drawing.Point(24, 99);
             this.txtConn1Url.Name = "txtConn1Url";
             this.txtConn1Url.Size = new System.Drawing.Size(224, 20);
-            this.txtConn1Url.TabIndex = 1;
+            this.txtConn1Url.TabIndex = 2;
             // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(490, 383);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 3;
+            this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // txtConn1Name
-            // 
-            this.txtConn1Name.Location = new System.Drawing.Point(24, 51);
-            this.txtConn1Name.Name = "txtConn1Name";
-            this.txtConn1Name.Size = new System.Drawing.Size(224, 20);
-            this.txtConn1Name.TabIndex = 12;
             // 
             // groupSaved
             // 
@@ -211,7 +211,7 @@ namespace ArasDiffTool.Win
             this.lstSaved.TabIndex = 0;
             this.lstSaved.DoubleClick += new System.EventHandler(this.lstSaved_DoubleClick);
             // 
-            // formConnections
+            // SettingsConnections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -220,7 +220,7 @@ namespace ArasDiffTool.Win
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pnlConn1);
             this.MaximizeBox = false;
-            this.Name = "formConnections";
+            this.Name = "SettingsConnections";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Connections";
