@@ -61,7 +61,7 @@ namespace ArasDiffTool.Win
             chkItemTypes.Items.Clear();
             foreach (var item in Settings.ItemTypes)
             {
-                chkItemTypes.Items.Add(item, true);
+                chkItemTypes.Items.Add(item, item.Checked);
             }
         }
 

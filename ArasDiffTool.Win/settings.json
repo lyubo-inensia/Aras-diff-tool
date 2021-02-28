@@ -18,37 +18,37 @@
   "ItemTypes": [
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "gn_GraphViewDefinition"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "gn_ViewCard"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "GlobalPresentationConfig"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Dashboard"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "DatabaseUpgrade"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "dr_RelationshipFamily"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "PackageDefinition"
     },
     {
@@ -63,117 +63,117 @@
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "cmf_Style"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "cmf_ContentType"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "effs_scope"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "effs_variable"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "effs_model"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "ES_Agent"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "ES_Crawler"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "ConversionRule"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "ConversionServer"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "ConversionTask"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "ConverterType"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "FileType"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Vault"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Viewer"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Language"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Locale"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "mpo_MassPromotion"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "EMail Message"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Message"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "SystemEvent"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "WMSettings"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "WMSet"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "WMType"
     },
     {
@@ -183,27 +183,27 @@
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "CommandBarItem"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "CommandBarSection"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "CommandBarButton"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "CommandBarMenuButton"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "PresentationConfiguration"
     },
     {
@@ -243,12 +243,12 @@
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Permission"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Preference"
     },
     {
@@ -258,27 +258,27 @@
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Report"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Revision"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "SavedSearch"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "Sequence"
     },
     {
       "Property": "name",
-      "Checked": true,
+      "Checked": false,
       "ItemType": "SQL"
     },
     {
