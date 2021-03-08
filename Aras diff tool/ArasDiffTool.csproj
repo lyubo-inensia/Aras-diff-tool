@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Reference Include="IOM">
-      <HintPath>..\..\..\ArasBin\bin\IOM.dll</HintPath>
+      <HintPath>..\IOM.dll</HintPath>
     </Reference>
   </ItemGroup>
 
