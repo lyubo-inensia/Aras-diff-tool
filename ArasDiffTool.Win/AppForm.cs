@@ -329,5 +329,11 @@ namespace ArasDiffTool.Win
                 chkItemTypes.SetItemChecked(i, isChecked);
             } 
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new About();
+            f.ShowDialog();
+        }
     }
 }
