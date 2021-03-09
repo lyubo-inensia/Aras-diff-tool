@@ -43,7 +43,6 @@ namespace ArasDiffTool.Win
             this.colCreated1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreated2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
             this.chkTo1 = new System.Windows.Forms.CheckBox();
             this.chkFrom1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,7 +69,6 @@ namespace ArasDiffTool.Win
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ddlConnection3 = new System.Windows.Forms.ComboBox();
             this.lblDb3 = new System.Windows.Forms.Label();
@@ -95,28 +93,30 @@ namespace ArasDiffTool.Win
             this.itemTypesGroup = new System.Windows.Forms.GroupBox();
             this.chkItemTypes = new System.Windows.Forms.CheckedListBox();
             this.btnCheckAll = new System.Windows.Forms.Button();
+            this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
+            this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabCompare.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
             this.conn2Group.SuspendLayout();
             this.conn1Group.SuspendLayout();
             this.tabChanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.itemTypesGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabCompare);
             this.tabControl1.Controls.Add(this.tabChanges);
+            this.tabControl1.Controls.Add(this.tabCompare);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -228,16 +228,6 @@ namespace ArasDiffTool.Win
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1076, 102);
             this.panel2.TabIndex = 12;
-            // 
-            // imgLoadingCompare
-            // 
-            this.imgLoadingCompare.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
-            this.imgLoadingCompare.Location = new System.Drawing.Point(752, 78);
-            this.imgLoadingCompare.Name = "imgLoadingCompare";
-            this.imgLoadingCompare.Size = new System.Drawing.Size(158, 16);
-            this.imgLoadingCompare.TabIndex = 12;
-            this.imgLoadingCompare.TabStop = false;
-            this.imgLoadingCompare.Visible = false;
             // 
             // chkTo1
             // 
@@ -506,16 +496,6 @@ namespace ArasDiffTool.Win
             this.panel1.Size = new System.Drawing.Size(1076, 102);
             this.panel1.TabIndex = 13;
             // 
-            // imgLoadingCheck
-            // 
-            this.imgLoadingCheck.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
-            this.imgLoadingCheck.Location = new System.Drawing.Point(711, 78);
-            this.imgLoadingCheck.Name = "imgLoadingCheck";
-            this.imgLoadingCheck.Size = new System.Drawing.Size(158, 16);
-            this.imgLoadingCheck.TabIndex = 13;
-            this.imgLoadingCheck.TabStop = false;
-            this.imgLoadingCheck.Visible = false;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ddlConnection3);
@@ -742,6 +722,26 @@ namespace ArasDiffTool.Win
             this.btnCheckAll.UseVisualStyleBackColor = true;
             this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
             // 
+            // imgLoadingCompare
+            // 
+            this.imgLoadingCompare.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
+            this.imgLoadingCompare.Location = new System.Drawing.Point(752, 78);
+            this.imgLoadingCompare.Name = "imgLoadingCompare";
+            this.imgLoadingCompare.Size = new System.Drawing.Size(158, 16);
+            this.imgLoadingCompare.TabIndex = 12;
+            this.imgLoadingCompare.TabStop = false;
+            this.imgLoadingCompare.Visible = false;
+            // 
+            // imgLoadingCheck
+            // 
+            this.imgLoadingCheck.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
+            this.imgLoadingCheck.Location = new System.Drawing.Point(711, 78);
+            this.imgLoadingCheck.Name = "imgLoadingCheck";
+            this.imgLoadingCheck.Size = new System.Drawing.Size(158, 16);
+            this.imgLoadingCheck.TabIndex = 13;
+            this.imgLoadingCheck.TabStop = false;
+            this.imgLoadingCheck.Visible = false;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -761,7 +761,6 @@ namespace ArasDiffTool.Win
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
             this.conn2Group.ResumeLayout(false);
             this.conn2Group.PerformLayout();
             this.conn1Group.ResumeLayout(false);
@@ -770,13 +769,14 @@ namespace ArasDiffTool.Win
             ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.itemTypesGroup.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
