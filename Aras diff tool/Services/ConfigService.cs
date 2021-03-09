@@ -14,7 +14,16 @@ namespace ArasDiffTool.Services
             return GetSettings().Connections;
         }
 
-        protected string Filename { get; } = "settings.json";
+        protected string SettingsFilePath { get {
+                var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "InnotTool");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                return Path.Combine(path, "settings.json");
+
+            } }
         protected string DefaultSettingsFile { get; } = "settings.template.json";
 
         public bool SaveConnections(IEnumerable<ConnectionSettings> connections)
@@ -41,12 +50,12 @@ namespace ArasDiffTool.Services
                 var json = JsonConvert.SerializeObject(settings);
                 try
                 {
-                    File.Delete(Filename);
+                    File.Delete(SettingsFilePath);
                 }
                 catch (Exception)
                 {
                 }
-                File.WriteAllText(Filename, json);
+                File.WriteAllText(SettingsFilePath, json);
                 ret = true;
             }
             catch (Exception ex)
@@ -82,17 +91,17 @@ namespace ArasDiffTool.Services
             Settings ret = new Settings();
             try
             {
-                if (!File.Exists(Filename))
+                if (!File.Exists(SettingsFilePath))
                 {
-                    File.Copy(DefaultSettingsFile, Filename);
+                    File.Copy(DefaultSettingsFile, SettingsFilePath);
                 }
-                ret = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Filename));
+                ret = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(SettingsFilePath));
                 var sorted = ret.ItemTypes.ToList().OrderBy(str => str.ToString(), StringComparer.CurrentCultureIgnoreCase).ToList();
                 ret.ItemTypes = sorted;
             }
             catch (Exception ex)
             {
-
+                
             }
 
             return ret;
