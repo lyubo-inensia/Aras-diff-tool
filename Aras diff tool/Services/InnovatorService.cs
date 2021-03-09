@@ -56,6 +56,26 @@ namespace ArasDiffTool.Services
 
             return ret;
         }
+        public async Task<IEnumerable<Item>> GetItemsAsync(string type)
+        {
+            var ret = new List<Item>();
+            try
+            {
+                var items = Inn.newItem(type, "get");
+                items = items.apply();
+                var c = items.getItemCount();
+                for (int i = 0; i < c; i++)
+                {
+                    var tmpItem = items.getItemByIndex(i);
+                    ret.Add(tmpItem);
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return ret;
+        }
         public async Task<IEnumerable<Item>> GetItemsAsync(IEnumerable<ItemTypeSetting> itemTypes)
         {
             var ret = new List<Item>();
@@ -86,6 +106,11 @@ namespace ArasDiffTool.Services
             }
 
             return ret;
+        }
+
+        public Innovator GetInnovator()
+        {
+            return _inn;
         }
     }
 }

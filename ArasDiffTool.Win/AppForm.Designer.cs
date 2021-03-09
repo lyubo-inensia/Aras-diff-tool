@@ -34,8 +34,9 @@ namespace ArasDiffTool.Win
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabChanges = new System.Windows.Forms.TabPage();
-            this.gridCheck = new System.Windows.Forms.DataGridView();
+            this.gridChanges = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPackage1 = new System.Windows.Forms.Button();
             this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ddlConnection3 = new System.Windows.Forms.ComboBox();
@@ -50,15 +51,9 @@ namespace ArasDiffTool.Win
             this.btnCheck = new System.Windows.Forms.Button();
             this.tabCompare = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.grid = new System.Windows.Forms.DataGridView();
-            this.comType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChangeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMod1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comMod2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreated1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreated2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridCompare = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPackage2 = new System.Windows.Forms.Button();
             this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
             this.chkTo1 = new System.Windows.Forms.CheckBox();
             this.chkFrom1 = new System.Windows.Forms.CheckBox();
@@ -97,15 +92,23 @@ namespace ArasDiffTool.Win
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChangeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMod1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comMod2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreated1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreated2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabChanges.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChanges)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabCompare.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCompare)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
             this.conn2Group.SuspendLayout();
@@ -128,7 +131,7 @@ namespace ArasDiffTool.Win
             // 
             // tabChanges
             // 
-            this.tabChanges.Controls.Add(this.gridCheck);
+            this.tabChanges.Controls.Add(this.gridChanges);
             this.tabChanges.Controls.Add(this.panel1);
             this.tabChanges.Location = new System.Drawing.Point(4, 22);
             this.tabChanges.Name = "tabChanges";
@@ -138,14 +141,14 @@ namespace ArasDiffTool.Win
             this.tabChanges.Text = "View changes";
             this.tabChanges.UseVisualStyleBackColor = true;
             // 
-            // gridCheck
+            // gridChanges
             // 
-            this.gridCheck.AllowUserToAddRows = false;
-            this.gridCheck.AllowUserToDeleteRows = false;
+            this.gridChanges.AllowUserToAddRows = false;
+            this.gridChanges.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridCheck.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridCheck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCheck.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridChanges.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridChanges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridChanges.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
@@ -158,16 +161,17 @@ namespace ArasDiffTool.Win
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridCheck.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gridCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCheck.Location = new System.Drawing.Point(3, 105);
-            this.gridCheck.Name = "gridCheck";
-            this.gridCheck.ReadOnly = true;
-            this.gridCheck.Size = new System.Drawing.Size(1076, 581);
-            this.gridCheck.TabIndex = 14;
+            this.gridChanges.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridChanges.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridChanges.Location = new System.Drawing.Point(3, 105);
+            this.gridChanges.Name = "gridChanges";
+            this.gridChanges.ReadOnly = true;
+            this.gridChanges.Size = new System.Drawing.Size(1076, 581);
+            this.gridChanges.TabIndex = 14;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPackage1);
             this.panel1.Controls.Add(this.imgLoadingCheck);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label6);
@@ -180,6 +184,17 @@ namespace ArasDiffTool.Win
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1076, 102);
             this.panel1.TabIndex = 13;
+            // 
+            // btnPackage1
+            // 
+            this.btnPackage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPackage1.Location = new System.Drawing.Point(905, 12);
+            this.btnPackage1.Name = "btnPackage1";
+            this.btnPackage1.Size = new System.Drawing.Size(156, 32);
+            this.btnPackage1.TabIndex = 16;
+            this.btnPackage1.Text = "Package";
+            this.btnPackage1.UseVisualStyleBackColor = true;
+            this.btnPackage1.Click += new System.EventHandler(this.btnPackage1_Click);
             // 
             // imgLoadingCheck
             // 
@@ -286,11 +301,10 @@ namespace ArasDiffTool.Win
             // 
             // btnCheck
             // 
-            this.btnCheck.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(920, 0);
+            this.btnCheck.Location = new System.Drawing.Point(905, 52);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(156, 102);
+            this.btnCheck.Size = new System.Drawing.Size(156, 32);
             this.btnCheck.TabIndex = 15;
             this.btnCheck.Text = "CHECK";
             this.btnCheck.UseVisualStyleBackColor = true;
@@ -310,81 +324,37 @@ namespace ArasDiffTool.Win
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.grid);
+            this.panel3.Controls.Add(this.gridCompare);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 105);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1076, 581);
             this.panel3.TabIndex = 10;
             // 
-            // grid
+            // gridCompare
             // 
-            this.grid.AllowUserToAddRows = false;
-            this.grid.AllowUserToDeleteRows = false;
-            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.comType,
-            this.comName,
+            this.gridCompare.AllowUserToAddRows = false;
+            this.gridCompare.AllowUserToDeleteRows = false;
+            this.gridCompare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCompare.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colType,
+            this.colName,
             this.colChangeType,
             this.colMod1,
             this.comMod2,
             this.colCreated1,
-            this.colCreated2});
-            this.grid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid.Location = new System.Drawing.Point(0, 0);
-            this.grid.Name = "grid";
-            this.grid.ReadOnly = true;
-            this.grid.Size = new System.Drawing.Size(1076, 581);
-            this.grid.TabIndex = 20;
-            // 
-            // comType
-            // 
-            this.comType.FillWeight = 200F;
-            this.comType.HeaderText = "Type";
-            this.comType.Name = "comType";
-            this.comType.ReadOnly = true;
-            this.comType.Width = 200;
-            // 
-            // comName
-            // 
-            this.comName.FillWeight = 200F;
-            this.comName.HeaderText = "Name";
-            this.comName.Name = "comName";
-            this.comName.ReadOnly = true;
-            this.comName.Width = 200;
-            // 
-            // colChangeType
-            // 
-            this.colChangeType.HeaderText = "Change";
-            this.colChangeType.Name = "colChangeType";
-            this.colChangeType.ReadOnly = true;
-            // 
-            // colMod1
-            // 
-            this.colMod1.HeaderText = "Modified 1";
-            this.colMod1.Name = "colMod1";
-            this.colMod1.ReadOnly = true;
-            // 
-            // comMod2
-            // 
-            this.comMod2.HeaderText = "Modiefied 2";
-            this.comMod2.Name = "comMod2";
-            this.comMod2.ReadOnly = true;
-            // 
-            // colCreated1
-            // 
-            this.colCreated1.HeaderText = "Created 1";
-            this.colCreated1.Name = "colCreated1";
-            this.colCreated1.ReadOnly = true;
-            // 
-            // colCreated2
-            // 
-            this.colCreated2.HeaderText = "Created 2";
-            this.colCreated2.Name = "colCreated2";
-            this.colCreated2.ReadOnly = true;
+            this.colCreated2,
+            this.colId});
+            this.gridCompare.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridCompare.Location = new System.Drawing.Point(0, 0);
+            this.gridCompare.Name = "gridCompare";
+            this.gridCompare.ReadOnly = true;
+            this.gridCompare.Size = new System.Drawing.Size(1076, 581);
+            this.gridCompare.TabIndex = 20;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnPackage2);
             this.panel2.Controls.Add(this.imgLoadingCompare);
             this.panel2.Controls.Add(this.chkTo1);
             this.panel2.Controls.Add(this.chkFrom1);
@@ -400,6 +370,17 @@ namespace ArasDiffTool.Win
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1076, 102);
             this.panel2.TabIndex = 12;
+            // 
+            // btnPackage2
+            // 
+            this.btnPackage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPackage2.Location = new System.Drawing.Point(917, 8);
+            this.btnPackage2.Name = "btnPackage2";
+            this.btnPackage2.Size = new System.Drawing.Size(156, 36);
+            this.btnPackage2.TabIndex = 16;
+            this.btnPackage2.Text = "Package";
+            this.btnPackage2.UseVisualStyleBackColor = true;
+            this.btnPackage2.Click += new System.EventHandler(this.btnPackage2_Click);
             // 
             // imgLoadingCompare
             // 
@@ -470,11 +451,10 @@ namespace ArasDiffTool.Win
             // 
             // btnReload
             // 
-            this.btnReload.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(920, 0);
+            this.btnReload.Location = new System.Drawing.Point(920, 53);
             this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(156, 102);
+            this.btnReload.Size = new System.Drawing.Size(156, 41);
             this.btnReload.TabIndex = 15;
             this.btnReload.Text = "COMPARE";
             this.btnReload.UseVisualStyleBackColor = true;
@@ -756,6 +736,66 @@ namespace ArasDiffTool.Win
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
+            // colType
+            // 
+            this.colType.DataPropertyName = "Type";
+            this.colType.FillWeight = 200F;
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 200;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.FillWeight = 200F;
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 200;
+            // 
+            // colChangeType
+            // 
+            this.colChangeType.DataPropertyName = "ChangeType";
+            this.colChangeType.HeaderText = "Change";
+            this.colChangeType.Name = "colChangeType";
+            this.colChangeType.ReadOnly = true;
+            // 
+            // colMod1
+            // 
+            this.colMod1.DataPropertyName = "ModifiedDate1";
+            this.colMod1.HeaderText = "Modified 1";
+            this.colMod1.Name = "colMod1";
+            this.colMod1.ReadOnly = true;
+            // 
+            // comMod2
+            // 
+            this.comMod2.DataPropertyName = "ModifiedDate2";
+            this.comMod2.HeaderText = "Modiefied 2";
+            this.comMod2.Name = "comMod2";
+            this.comMod2.ReadOnly = true;
+            // 
+            // colCreated1
+            // 
+            this.colCreated1.DataPropertyName = "CreatedDate1";
+            this.colCreated1.HeaderText = "Created 1";
+            this.colCreated1.Name = "colCreated1";
+            this.colCreated1.ReadOnly = true;
+            // 
+            // colCreated2
+            // 
+            this.colCreated2.DataPropertyName = "CreatedDate2";
+            this.colCreated2.HeaderText = "Created 2";
+            this.colCreated2.Name = "colCreated2";
+            this.colCreated2.ReadOnly = true;
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "ID";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -772,7 +812,7 @@ namespace ArasDiffTool.Win
             this.Load += new System.EventHandler(this.formMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabChanges.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChanges)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
@@ -780,7 +820,7 @@ namespace ArasDiffTool.Win
             this.groupBox1.PerformLayout();
             this.tabCompare.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCompare)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
@@ -812,14 +852,7 @@ namespace ArasDiffTool.Win
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TabPage tabCompare;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView grid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChangeType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMod1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comMod2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreated1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreated2;
+        private System.Windows.Forms.DataGridView gridCompare;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.GroupBox conn2Group;
@@ -847,7 +880,7 @@ namespace ArasDiffTool.Win
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.GroupBox itemTypesGroup;
         private System.Windows.Forms.CheckedListBox chkItemTypes;
-        private System.Windows.Forms.DataGridView gridCheck;
+        private System.Windows.Forms.DataGridView gridChanges;
         private System.Windows.Forms.ComboBox ddlConnection2;
         private System.Windows.Forms.ComboBox ddlConnection1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -859,11 +892,21 @@ namespace ArasDiffTool.Win
         private System.Windows.Forms.PictureBox imgLoadingCompare;
         private System.Windows.Forms.PictureBox imgLoadingCheck;
         private System.Windows.Forms.Button btnCheckAll;
+        private System.Windows.Forms.Button btnPackage1;
+        private System.Windows.Forms.Button btnPackage2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChangeType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMod1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comMod2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreated1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreated2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
     }
 }
 

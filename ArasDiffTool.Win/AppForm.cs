@@ -126,11 +126,11 @@ namespace ArasDiffTool.Win
 
         void BindDiffGrid(IEnumerable<DiffItem> diffs)
         {
-            grid.Rows.Clear();
-            string dateFormat = "dd.MM.yyyy";
-            foreach (var item in diffs)
+            gridCompare.DataSource = diffs;
+            foreach(DataGridViewRow r in gridCompare.Rows)
             {
                 var color = Color.LightGreen;
+                var item = (DiffItem) r.DataBoundItem;
                 if (item.ChangeType == ItemChangeType.Deleted)
                 {
                     color = Color.LightSalmon;
@@ -139,17 +139,7 @@ namespace ArasDiffTool.Win
                 {
                     color = Color.LightSkyBlue;
                 }
-                grid.Rows.Add(new string[] {
-                    item.Type,
-                    item.Name,
-                    item.ChangeType.ToString("g"),
-
-                    item.ModifiedDate1 == default? "": item.ModifiedDate1.ToString(dateFormat),
-                    item.ModifiedDate2 == default? "": item.ModifiedDate2.ToString(dateFormat),
-                    item.CreatedDate1 == default? "": item.CreatedDate1.ToString(dateFormat),
-                    item.CreatedDate2 == default? "": item.CreatedDate2.ToString(dateFormat),
-                });
-                grid.Rows[grid.Rows.Count - 1].DefaultCellStyle.BackColor = color;
+                r.DefaultCellStyle.BackColor = color;
             }
         }
 
@@ -181,18 +171,7 @@ namespace ArasDiffTool.Win
 
         void BindCheckGrid(IEnumerable<SingleItem> res)
         {
-            //gridCheck.Rows.Clear();
-            string dateFormat = "dd.MM.yyyy";
-            gridCheck.DataSource = res;
-            //foreach (var item in res)
-            //{
-            //    gridCheck.Rows.Add(new string[] {
-            //        item.Type,
-            //        item.Name,
-            //        item.ModifiedDate == default? "": item.ModifiedDate.ToString(dateFormat),
-            //        item.CreatedDate == default? "": item.CreatedDate.ToString(dateFormat)
-            //    });
-            //}
+            gridChanges.DataSource = res;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -335,6 +314,42 @@ namespace ArasDiffTool.Win
         {
             var f = new About();
             f.ShowDialog();
+        }
+
+        private void AddToPackage(DataGridView grid, ConnectionSettings conn)
+        {
+            if (grid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Nothing selected.");
+                return;
+            }
+            if (conn == null)
+            {
+                MessageBox.Show("Select connection.");
+                return;
+            }
+            var items = new List<IBaseItem>();
+            foreach(var r in grid.SelectedRows)
+            {
+                var row = (DataGridViewRow)r;
+                var item = (IBaseItem)row.DataBoundItem;
+                if (string.IsNullOrWhiteSpace(item.Id))
+                {
+                    continue;
+                }
+                items.Add(item);
+            }
+            var f = new AddToPackage(conn, items);
+            f.ShowDialog();
+        }
+        private void btnPackage1_Click(object sender, EventArgs e)
+        {
+            AddToPackage(gridChanges, Connection3);
+        }
+
+        private void btnPackage2_Click(object sender, EventArgs e)
+        {
+            AddToPackage(gridCompare, Connection1);
         }
     }
 }

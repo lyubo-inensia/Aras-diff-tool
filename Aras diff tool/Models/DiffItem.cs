@@ -28,7 +28,7 @@ namespace ArasDiffTool.Models
                 DateTime.TryParse(item2.getProperty("modified_on"), out mod2);
                 DateTime.TryParse(item2.getProperty("created_on"), out created2);
             }
-            Id = item1?.getID() ?? item2.getID();
+            Id = item1?.getID() ?? "";
             Type = (item1?.getType() ?? item2?.getType()) ?? "";
             Name = (item1?.getProperty(GetNameProperty(item1), "") ?? item2?.getProperty(GetNameProperty(item2), "")) ?? "";
             ModifiedDate1 = mod1;

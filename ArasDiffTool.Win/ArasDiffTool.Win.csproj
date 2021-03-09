@@ -104,6 +104,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddToPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddToPackage.Designer.cs">
+      <DependentUpon>AddToPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddToPackage.resx">
+      <DependentUpon>AddToPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm.resx">
       <DependentUpon>AppForm.cs</DependentUpon>

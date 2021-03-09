@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ArasDiffTool.Models
 {
-    public abstract class BaseGridItem
+    public abstract class BaseGridItem : IBaseItem
     {
         public const string NameProperty = "diff_name_prop";
         public string Id { get; set; }
