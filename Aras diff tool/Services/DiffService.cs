@@ -36,7 +36,6 @@ namespace ArasDiffTool.Services
                 else if (data1.ContainsKey(name) &&
                     data2.ContainsKey(name))
                 {
-
                     var tmp = new DiffItem(data1[name], data2[name]) { ChangeType = ItemChangeType.Modified };
                     if (tmp.ModifiedDate1 != tmp.ModifiedDate2)
                     {
@@ -80,7 +79,7 @@ namespace ArasDiffTool.Services
             Dictionary<string, Item> ret = new Dictionary<string, Item>();
             foreach (var item in items)
             {
-                string key = item.getProperty(item.getProperty("diff_name_prop", "name"), "");
+                string key = item.getProperty(item.getProperty(BaseGridItem.NameProperty, "name"), "");
                 if (!ret.ContainsKey(key))
                 {
                     ret.Add(key, item);

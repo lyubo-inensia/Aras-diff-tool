@@ -59,22 +59,30 @@ namespace ArasDiffTool.Services
         public async Task<IEnumerable<Item>> GetItemsAsync(IEnumerable<ItemTypeSetting> itemTypes)
         {
             var ret = new List<Item>();
-            foreach (var itemType in itemTypes)
+            try
             {
-                var tmp = itemType.ItemType.Trim().Replace(" ", "_");
-                var items = Inn.newItem(tmp, "get");
-                items = items.apply();
-                if (items.isError())
+                foreach (var itemType in itemTypes)
                 {
-                    continue;
+                    var tmp = itemType.ItemType.Trim();
+                    var items = Inn.newItem(tmp, "get");
+                    items = items.apply();
+                    if (items.isError())
+                    {
+                        continue;
+                    }
+                    var c = items.getItemCount();
+                    for (int i = 0; i < c; i++)
+                    {
+                        var tmpItem = items.getItemByIndex(i);
+                        tmpItem.setProperty("diff_name_prop", itemType.Property.Trim());
+                        ret.Add(tmpItem);
+                    }
                 }
-                var c = items.getItemCount();
-                for (int i = 0; i < c; i++)
-                {
-                    var tmpItem = items.getItemByIndex(i);
-                    tmpItem.setProperty("diff_name_prop", itemType.Property);
-                    ret.Add(tmpItem);
-                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
 
             return ret;

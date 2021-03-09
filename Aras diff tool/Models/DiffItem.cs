@@ -9,7 +9,7 @@ namespace ArasDiffTool.Models
         Modified = 2,
         Deleted = 3
     }
-    public class DiffItem
+    public class DiffItem : BaseGridItem
     {
 
         public DiffItem(Item item1, Item item2)
@@ -28,16 +28,14 @@ namespace ArasDiffTool.Models
                 DateTime.TryParse(item2.getProperty("modified_on"), out mod2);
                 DateTime.TryParse(item2.getProperty("created_on"), out created2);
             }
+            Id = item1?.getID() ?? item2.getID();
             Type = (item1?.getType() ?? item2?.getType()) ?? "";
-            Name = (item1?.getProperty("name", "") ?? item2?.getProperty("name", "")) ?? "";
+            Name = (item1?.getProperty(GetNameProperty(item1), "") ?? item2?.getProperty(GetNameProperty(item2), "")) ?? "";
             ModifiedDate1 = mod1;
             CreatedDate1 = created1;
             ModifiedDate2 = mod2;
             CreatedDate2 = created2;
-
         }
-        public string Type { get; set; }
-        public string Name { get; set; }
         public DateTime ModifiedDate1 { get; set; }
         public DateTime CreatedDate1 { get; set; }
         public DateTime ModifiedDate2 { get; set; }

@@ -181,17 +181,18 @@ namespace ArasDiffTool.Win
 
         void BindCheckGrid(IEnumerable<SingleItem> res)
         {
-            gridCheck.Rows.Clear();
+            //gridCheck.Rows.Clear();
             string dateFormat = "dd.MM.yyyy";
-            foreach (var item in res)
-            {
-                gridCheck.Rows.Add(new string[] {
-                    item.Type,
-                    item.Name,
-                    item.ModifiedDate == default? "": item.ModifiedDate.ToString(dateFormat),
-                    item.CreatedDate == default? "": item.CreatedDate.ToString(dateFormat)
-                });
-            }
+            gridCheck.DataSource = res;
+            //foreach (var item in res)
+            //{
+            //    gridCheck.Rows.Add(new string[] {
+            //        item.Type,
+            //        item.Name,
+            //        item.ModifiedDate == default? "": item.ModifiedDate.ToString(dateFormat),
+            //        item.CreatedDate == default? "": item.CreatedDate.ToString(dateFormat)
+            //    });
+            //}
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
