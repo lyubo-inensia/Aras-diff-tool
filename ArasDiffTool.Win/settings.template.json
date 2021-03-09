@@ -1,19 +1,6 @@
 {
     "Connections": [
-      {
-        "Name": "12SP01_01",
-        "Url": "http://innovatorserver/InnovatorServer12SP09",
-        "Database": "12SP01_01",
-        "Username": "admin",
-        "Password": "innovator"
-      },
-      {
-        "Name": "Training12SP09",
-        "Url": "http://innovatorserver/InnovatorServer12SP09",
-        "Database": "Training12SP09",
-        "Username": "admin",
-        "Password": "innovator"
-      }
+     
     ],
   "ItemTypes": [
     {

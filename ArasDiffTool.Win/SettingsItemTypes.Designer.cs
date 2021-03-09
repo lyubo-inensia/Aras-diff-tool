@@ -30,17 +30,17 @@ namespace ArasDiffTool.Win
         private void InitializeComponent()
         {
             this.pnlGrid = new System.Windows.Forms.Panel();
-            this.pnlButtons = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.gridTypes = new System.Windows.Forms.DataGridView();
             this.ItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Property = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Checked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pnlButtons = new System.Windows.Forms.Panel();
             this.btnDefaults = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlGrid.SuspendLayout();
-            this.pnlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTypes)).BeginInit();
+            this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlGrid
@@ -52,37 +52,6 @@ namespace ArasDiffTool.Win
             this.pnlGrid.Padding = new System.Windows.Forms.Padding(15);
             this.pnlGrid.Size = new System.Drawing.Size(550, 411);
             this.pnlGrid.TabIndex = 0;
-            // 
-            // pnlButtons
-            // 
-            this.pnlButtons.Controls.Add(this.btnDefaults);
-            this.pnlButtons.Controls.Add(this.btnClose);
-            this.pnlButtons.Controls.Add(this.btnSave);
-            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlButtons.Location = new System.Drawing.Point(0, 414);
-            this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(550, 36);
-            this.pnlButtons.TabIndex = 1;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(460, 3);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(15, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // gridTypes
             // 
@@ -113,6 +82,17 @@ namespace ArasDiffTool.Win
             this.Checked.HeaderText = "Checked";
             this.Checked.Name = "Checked";
             // 
+            // pnlButtons
+            // 
+            this.pnlButtons.Controls.Add(this.btnDefaults);
+            this.pnlButtons.Controls.Add(this.btnClose);
+            this.pnlButtons.Controls.Add(this.btnSave);
+            this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlButtons.Location = new System.Drawing.Point(0, 414);
+            this.pnlButtons.Name = "pnlButtons";
+            this.pnlButtons.Size = new System.Drawing.Size(550, 36);
+            this.pnlButtons.TabIndex = 1;
+            // 
             // btnDefaults
             // 
             this.btnDefaults.Location = new System.Drawing.Point(96, 3);
@@ -122,6 +102,26 @@ namespace ArasDiffTool.Win
             this.btnDefaults.Text = "Load default";
             this.btnDefaults.UseVisualStyleBackColor = true;
             this.btnDefaults.Click += new System.EventHandler(this.btnDefaults_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(15, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(460, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SettingsItemTypes
             // 
@@ -134,10 +134,11 @@ namespace ArasDiffTool.Win
             this.MinimizeBox = false;
             this.Name = "SettingsItemTypes";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item Types";
             this.pnlGrid.ResumeLayout(false);
-            this.pnlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTypes)).EndInit();
+            this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

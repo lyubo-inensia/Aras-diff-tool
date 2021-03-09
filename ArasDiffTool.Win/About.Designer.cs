@@ -69,12 +69,12 @@ namespace ArasDiffTool.Win
             // lnkSite
             // 
             this.lnkSite.AutoSize = true;
-            this.lnkSite.Location = new System.Drawing.Point(139, 165);
+            this.lnkSite.Location = new System.Drawing.Point(174, 157);
             this.lnkSite.Name = "lnkSite";
-            this.lnkSite.Size = new System.Drawing.Size(123, 13);
+            this.lnkSite.Size = new System.Drawing.Size(53, 13);
             this.lnkSite.TabIndex = 3;
             this.lnkSite.TabStop = true;
-            this.lnkSite.Text = "Find more at innotool.xyz";
+            this.lnkSite.Text = "Find more";
             this.lnkSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSite_LinkClicked);
             // 
             // About

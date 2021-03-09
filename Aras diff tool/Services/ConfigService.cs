@@ -15,6 +15,7 @@ namespace ArasDiffTool.Services
         }
 
         protected string Filename { get; } = "settings.json";
+        protected string DefaultSettingsFile { get; } = "settings.template.json";
 
         public bool SaveConnections(IEnumerable<ConnectionSettings> connections)
         {
@@ -81,7 +82,10 @@ namespace ArasDiffTool.Services
             Settings ret = new Settings();
             try
             {
-
+                if (!File.Exists(Filename))
+                {
+                    File.Copy(DefaultSettingsFile, Filename);
+                }
                 ret = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Filename));
                 var sorted = ret.ItemTypes.ToList().OrderBy(str => str.ToString(), StringComparer.CurrentCultureIgnoreCase).ToList();
                 ret.ItemTypes = sorted;

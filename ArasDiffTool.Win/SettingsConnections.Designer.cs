@@ -223,6 +223,7 @@ namespace ArasDiffTool.Win
             this.Name = "SettingsConnections";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connections";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.formConnections_Load);
