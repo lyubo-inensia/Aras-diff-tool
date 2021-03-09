@@ -31,7 +31,27 @@ namespace ArasDiffTool.Win
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabChanges = new System.Windows.Forms.TabPage();
+            this.gridCheck = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ddlConnection3 = new System.Windows.Forms.ComboBox();
+            this.lblDb3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblUrl3 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateCheckTo = new System.Windows.Forms.DateTimePicker();
+            this.dateCheckFrom = new System.Windows.Forms.DateTimePicker();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.tabCompare = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.grid = new System.Windows.Forms.DataGridView();
@@ -43,6 +63,7 @@ namespace ArasDiffTool.Win
             this.colCreated1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreated2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
             this.chkTo1 = new System.Windows.Forms.CheckBox();
             this.chkFrom1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,24 +83,6 @@ namespace ArasDiffTool.Win
             this.label4 = new System.Windows.Forms.Label();
             this.lblUrl1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabChanges = new System.Windows.Forms.TabPage();
-            this.gridCheck = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ddlConnection3 = new System.Windows.Forms.ComboBox();
-            this.lblDb3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblUrl3 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateCheckTo = new System.Windows.Forms.DateTimePicker();
-            this.dateCheckFrom = new System.Windows.Forms.DateTimePicker();
-            this.btnCheck = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,24 +96,22 @@ namespace ArasDiffTool.Win
             this.itemTypesGroup = new System.Windows.Forms.GroupBox();
             this.chkItemTypes = new System.Windows.Forms.CheckedListBox();
             this.btnCheckAll = new System.Windows.Forms.Button();
-            this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
-            this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
+            this.tabChanges.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.tabCompare.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
             this.conn2Group.SuspendLayout();
             this.conn1Group.SuspendLayout();
-            this.tabChanges.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.itemTypesGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -123,6 +124,203 @@ namespace ArasDiffTool.Win
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1090, 715);
             this.tabControl1.TabIndex = 0;
+            // 
+            // tabChanges
+            // 
+            this.tabChanges.Controls.Add(this.gridCheck);
+            this.tabChanges.Controls.Add(this.panel1);
+            this.tabChanges.Location = new System.Drawing.Point(4, 22);
+            this.tabChanges.Name = "tabChanges";
+            this.tabChanges.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChanges.Size = new System.Drawing.Size(1082, 689);
+            this.tabChanges.TabIndex = 1;
+            this.tabChanges.Text = "View changes";
+            this.tabChanges.UseVisualStyleBackColor = true;
+            // 
+            // gridCheck
+            // 
+            this.gridCheck.AllowUserToAddRows = false;
+            this.gridCheck.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridCheck.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridCheck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCheck.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridCheck.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridCheck.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridCheck.Location = new System.Drawing.Point(3, 105);
+            this.gridCheck.Name = "gridCheck";
+            this.gridCheck.ReadOnly = true;
+            this.gridCheck.Size = new System.Drawing.Size(1076, 581);
+            this.gridCheck.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Modified";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Created";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.imgLoadingCheck);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.dateCheckTo);
+            this.panel1.Controls.Add(this.dateCheckFrom);
+            this.panel1.Controls.Add(this.btnCheck);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1076, 102);
+            this.panel1.TabIndex = 13;
+            // 
+            // imgLoadingCheck
+            // 
+            this.imgLoadingCheck.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
+            this.imgLoadingCheck.Location = new System.Drawing.Point(711, 78);
+            this.imgLoadingCheck.Name = "imgLoadingCheck";
+            this.imgLoadingCheck.Size = new System.Drawing.Size(158, 16);
+            this.imgLoadingCheck.TabIndex = 13;
+            this.imgLoadingCheck.TabStop = false;
+            this.imgLoadingCheck.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ddlConnection3);
+            this.groupBox1.Controls.Add(this.lblDb3);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.lblUrl3);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(475, 90);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Connection";
+            // 
+            // ddlConnection3
+            // 
+            this.ddlConnection3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlConnection3.FormattingEnabled = true;
+            this.ddlConnection3.Location = new System.Drawing.Point(9, 19);
+            this.ddlConnection3.Name = "ddlConnection3";
+            this.ddlConnection3.Size = new System.Drawing.Size(247, 21);
+            this.ddlConnection3.TabIndex = 10;
+            this.ddlConnection3.SelectedIndexChanged += new System.EventHandler(this.ddlConnection3_SelectedIndexChanged);
+            // 
+            // lblDb3
+            // 
+            this.lblDb3.AutoSize = true;
+            this.lblDb3.Location = new System.Drawing.Point(68, 67);
+            this.lblDb3.Name = "lblDb3";
+            this.lblDb3.Size = new System.Drawing.Size(0, 13);
+            this.lblDb3.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 67);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Database:";
+            // 
+            // lblUrl3
+            // 
+            this.lblUrl3.AutoSize = true;
+            this.lblUrl3.Location = new System.Drawing.Point(68, 49);
+            this.lblUrl3.Name = "lblUrl3";
+            this.lblUrl3.Size = new System.Drawing.Size(0, 13);
+            this.lblUrl3.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 49);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(23, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Url:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(644, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "To:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(634, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "From:";
+            // 
+            // dateCheckTo
+            // 
+            this.dateCheckTo.CustomFormat = "\"\"";
+            this.dateCheckTo.Location = new System.Drawing.Point(669, 46);
+            this.dateCheckTo.Name = "dateCheckTo";
+            this.dateCheckTo.Size = new System.Drawing.Size(200, 20);
+            this.dateCheckTo.TabIndex = 12;
+            this.dateCheckTo.Tag = "";
+            // 
+            // dateCheckFrom
+            // 
+            this.dateCheckFrom.Location = new System.Drawing.Point(669, 12);
+            this.dateCheckFrom.Name = "dateCheckFrom";
+            this.dateCheckFrom.Size = new System.Drawing.Size(200, 20);
+            this.dateCheckFrom.TabIndex = 11;
+            this.dateCheckFrom.Value = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheck.Location = new System.Drawing.Point(920, 0);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(156, 102);
+            this.btnCheck.TabIndex = 15;
+            this.btnCheck.Text = "CHECK";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // tabCompare
             // 
@@ -228,6 +426,16 @@ namespace ArasDiffTool.Win
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1076, 102);
             this.panel2.TabIndex = 12;
+            // 
+            // imgLoadingCompare
+            // 
+            this.imgLoadingCompare.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
+            this.imgLoadingCompare.Location = new System.Drawing.Point(752, 78);
+            this.imgLoadingCompare.Name = "imgLoadingCompare";
+            this.imgLoadingCompare.Size = new System.Drawing.Size(158, 16);
+            this.imgLoadingCompare.TabIndex = 12;
+            this.imgLoadingCompare.TabStop = false;
+            this.imgLoadingCompare.Visible = false;
             // 
             // chkTo1
             // 
@@ -414,193 +622,6 @@ namespace ArasDiffTool.Win
             this.label1.TabIndex = 0;
             this.label1.Text = "Url:";
             // 
-            // tabChanges
-            // 
-            this.tabChanges.Controls.Add(this.gridCheck);
-            this.tabChanges.Controls.Add(this.panel1);
-            this.tabChanges.Location = new System.Drawing.Point(4, 22);
-            this.tabChanges.Name = "tabChanges";
-            this.tabChanges.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChanges.Size = new System.Drawing.Size(1082, 689);
-            this.tabChanges.TabIndex = 1;
-            this.tabChanges.Text = "View changes";
-            this.tabChanges.UseVisualStyleBackColor = true;
-            // 
-            // gridCheck
-            // 
-            this.gridCheck.AllowUserToAddRows = false;
-            this.gridCheck.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridCheck.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gridCheck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCheck.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridCheck.DefaultCellStyle = dataGridViewCellStyle2;
-            this.gridCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCheck.Location = new System.Drawing.Point(3, 105);
-            this.gridCheck.Name = "gridCheck";
-            this.gridCheck.ReadOnly = true;
-            this.gridCheck.Size = new System.Drawing.Size(1076, 581);
-            this.gridCheck.TabIndex = 14;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Modified";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Created";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.imgLoadingCheck);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.dateCheckTo);
-            this.panel1.Controls.Add(this.dateCheckFrom);
-            this.panel1.Controls.Add(this.btnCheck);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1076, 102);
-            this.panel1.TabIndex = 13;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.ddlConnection3);
-            this.groupBox1.Controls.Add(this.lblDb3);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.lblUrl3);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Location = new System.Drawing.Point(13, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(475, 90);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Connection";
-            // 
-            // ddlConnection3
-            // 
-            this.ddlConnection3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlConnection3.FormattingEnabled = true;
-            this.ddlConnection3.Location = new System.Drawing.Point(9, 19);
-            this.ddlConnection3.Name = "ddlConnection3";
-            this.ddlConnection3.Size = new System.Drawing.Size(247, 21);
-            this.ddlConnection3.TabIndex = 10;
-            this.ddlConnection3.SelectedIndexChanged += new System.EventHandler(this.ddlConnection3_SelectedIndexChanged);
-            // 
-            // lblDb3
-            // 
-            this.lblDb3.AutoSize = true;
-            this.lblDb3.Location = new System.Drawing.Point(68, 67);
-            this.lblDb3.Name = "lblDb3";
-            this.lblDb3.Size = new System.Drawing.Size(0, 13);
-            this.lblDb3.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 67);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Database:";
-            // 
-            // lblUrl3
-            // 
-            this.lblUrl3.AutoSize = true;
-            this.lblUrl3.Location = new System.Drawing.Point(68, 49);
-            this.lblUrl3.Name = "lblUrl3";
-            this.lblUrl3.Size = new System.Drawing.Size(0, 13);
-            this.lblUrl3.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 49);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(23, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Url:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(644, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "To:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(634, 14);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "From:";
-            // 
-            // dateCheckTo
-            // 
-            this.dateCheckTo.CustomFormat = "\"\"";
-            this.dateCheckTo.Location = new System.Drawing.Point(669, 46);
-            this.dateCheckTo.Name = "dateCheckTo";
-            this.dateCheckTo.Size = new System.Drawing.Size(200, 20);
-            this.dateCheckTo.TabIndex = 12;
-            this.dateCheckTo.Tag = "";
-            // 
-            // dateCheckFrom
-            // 
-            this.dateCheckFrom.Location = new System.Drawing.Point(669, 12);
-            this.dateCheckFrom.Name = "dateCheckFrom";
-            this.dateCheckFrom.Size = new System.Drawing.Size(200, 20);
-            this.dateCheckFrom.TabIndex = 11;
-            this.dateCheckFrom.Value = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
-            // 
-            // btnCheck
-            // 
-            this.btnCheck.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(920, 0);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(156, 102);
-            this.btnCheck.TabIndex = 15;
-            this.btnCheck.Text = "CHECK";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -663,13 +684,13 @@ namespace ArasDiffTool.Win
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.helpToolStripMenuItem1.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -722,26 +743,6 @@ namespace ArasDiffTool.Win
             this.btnCheckAll.UseVisualStyleBackColor = true;
             this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
             // 
-            // imgLoadingCompare
-            // 
-            this.imgLoadingCompare.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
-            this.imgLoadingCompare.Location = new System.Drawing.Point(752, 78);
-            this.imgLoadingCompare.Name = "imgLoadingCompare";
-            this.imgLoadingCompare.Size = new System.Drawing.Size(158, 16);
-            this.imgLoadingCompare.TabIndex = 12;
-            this.imgLoadingCompare.TabStop = false;
-            this.imgLoadingCompare.Visible = false;
-            // 
-            // imgLoadingCheck
-            // 
-            this.imgLoadingCheck.Image = global::ArasDiffTool.Win.Properties.Resources.loader;
-            this.imgLoadingCheck.Location = new System.Drawing.Point(711, 78);
-            this.imgLoadingCheck.Name = "imgLoadingCheck";
-            this.imgLoadingCheck.Size = new System.Drawing.Size(158, 16);
-            this.imgLoadingCheck.TabIndex = 13;
-            this.imgLoadingCheck.TabStop = false;
-            this.imgLoadingCheck.Visible = false;
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,33 +751,34 @@ namespace ArasDiffTool.Win
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "AppForm";
             this.Text = "Innovator Diff Tool";
             this.Load += new System.EventHandler(this.formMain_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabChanges.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabCompare.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
             this.conn2Group.ResumeLayout(false);
             this.conn2Group.PerformLayout();
             this.conn1Group.ResumeLayout(false);
             this.conn1Group.PerformLayout();
-            this.tabChanges.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridCheck)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.itemTypesGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCompare)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLoadingCheck)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
