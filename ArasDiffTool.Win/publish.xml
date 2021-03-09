@@ -1,17 +1,17 @@
 ﻿<AssemblyOriginatorKeyFile>WindowsApplication3.snk</AssemblyOriginatorKeyFile>
 <GenerateManifests>true</GenerateManifests>
 <TargetZone>LocalIntranet</TargetZone>
-<PublisherName>Microsoft</PublisherName>
-<ProductName>CmdLineDemo</ProductName>
-<PublishUrl>http://localhost/CmdLineDemo</PublishUrl>
+<PublisherName>Lyubo Arsov</PublisherName>
+<ProductName>Innovator Tools</ProductName>
+<PublishUrl>http://innotool.xyz/setup</PublishUrl>
 <Install>true</Install>
 <ApplicationVersion>1.0.0.*</ApplicationVersion>
 <ApplicationRevision>1</ApplicationRevision>
 <UpdateEnabled>true</UpdateEnabled>
 <UpdateRequired>false</UpdateRequired>
 <UpdateMode>Foreground</UpdateMode>
-<UpdateInterval>7</UpdateInterval>
-<UpdateIntervalUnits>Days</UpdateIntervalUnits>
+<UpdateInterval>1</UpdateInterval>
+<UpdateIntervalUnits>Hours</UpdateIntervalUnits>
 <UpdateUrlEnabled>false</UpdateUrlEnabled>
 <IsWebBootstrapper>true</IsWebBootstrapper>
 <BootstrapperEnabled>true</BootstrapperEnabled>
