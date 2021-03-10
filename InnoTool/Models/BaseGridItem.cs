@@ -7,16 +7,9 @@ namespace InnoTool.Models
 {
     public abstract class BaseGridItem : IBaseItem
     {
-        public const string NameProperty = "diff_name_prop";
         public string Id { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }
-
-        protected string GetNameProperty(Item item)
-        {
-            var ret = item?.getProperty(NameProperty) ?? "name";
-
-            return ret;
-        }
+        public string Package { get; set; }
     }
 }

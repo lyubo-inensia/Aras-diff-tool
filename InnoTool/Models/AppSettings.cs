@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace InnoTool.Models
 {
-    public class Settings
+    public class AppSettings
     {
-        public Settings()
+        public AppSettings()
         {
             Connections = new List<ConnectionSettings>();
             ItemTypes = new List<ItemTypeSetting>();

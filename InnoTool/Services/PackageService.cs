@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InnoTool.Services
 {
-    public class PackageService
+    public class PackageService : IPackageService
     {
         public PackageService(InnovatorService inn)
         {
@@ -23,7 +23,7 @@ namespace InnoTool.Services
             IEnumerable<PackageDefinition> ret = new List<PackageDefinition>();
             try
             {
-                var packages = await Inn.GetItemsAsync(PackageDefinitionType);
+                var packages = Inn.GetItems(PackageDefinitionType);
                 ret = packages.Select(e => new PackageDefinition
                 {
                     Id = e.getID(),
@@ -35,7 +35,7 @@ namespace InnoTool.Services
             return ret;
         }
 
-        public List<Item> GetPackageGroups(string packId)
+        protected List<Item> GetPackageGroups(string packId)
         {
             List<Item> ret = new List<Item>(); ;
             try
@@ -52,22 +52,6 @@ namespace InnoTool.Services
 
             return ret;
         }
-        public Dictionary<string, string> GetItemTypes()
-        {
-            Dictionary<string, string> ret = new Dictionary<string, string>(); ;
-            try
-            {
-                var items = Inn.GetInnovator().newItem("itemtype", "get");
-                items = items.apply();
-                for (int i = 0; i < items.getItemCount(); i++)
-                {
-                    ret.Add(items.getItemByIndex(i).getProperty("name").ToLower(), items.getItemByIndex(i).getID());
-                }
-            }
-            catch { }
-
-            return ret;
-        }
         protected Item CreatePackGroup(string packId, string type)
         {
             Item ret = null;
@@ -77,6 +61,10 @@ namespace InnoTool.Services
                 ret.setProperty("source_id", packId);
                 ret.setProperty("name", type);
                 ret = ret.apply();
+                if (ret.isError())
+                {
+                    throw new Exception(ret.getErrorDetail());
+                }
             }
             catch (Exception ex)
             {
@@ -85,9 +73,23 @@ namespace InnoTool.Services
 
             return ret;
         }
-        public int AddItemToPackage(string packId, IEnumerable<IBaseItem> items)
+        protected bool RemoveItemFromPackages(string itemId)
         {
-            var ret = 0;
+            var ret = false;
+            try
+            {
+                var sql = $"DELETE FROM innovator.packageelement WHERE element_id='{itemId}'";
+                Inn.GetInnovator().applySQL(sql);
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return ret;
+        }
+        public IEnumerable<IBaseItem> AddItemsToPackage(string packId, IEnumerable<IBaseItem> items, string packageName, bool moveItems = false)
+        {
+            List<IBaseItem> ret = new List<IBaseItem>();
             var groups = GetPackageGroups(packId);
             foreach (var item in items)
             {
@@ -97,12 +99,18 @@ namespace InnoTool.Services
                     if (g == null)
                     {
                         g = CreatePackGroup(packId, item.Type);
-                        if (g == null)
+                        if (g == null || g.isError())
                         {
                             continue;
                         }
                         groups.Add(g);
                     }
+
+                    if (moveItems)
+                    {
+                        RemoveItemFromPackages(item.Id);
+                    }
+
                     var newItem = Inn.GetInnovator().newItem("packageelement", "add");
                     var groupId = g.getID();
                     newItem.setProperty("element_id", item.Id);
@@ -110,9 +118,11 @@ namespace InnoTool.Services
                     newItem.setProperty("element_type", item.Type);
                     newItem.setProperty("name", item.Name);
                     newItem = newItem.apply();
-                    if (!newItem.isError()) 
+
+                    if (!newItem.isError())
                     {
-                        ret++;
+                        item.Package = packageName;
+                        ret.Add(item);
                     }
                 }
                 catch (Exception ex)

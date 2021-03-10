@@ -1,0 +1,230 @@
+﻿[{
+	"ItemType": "Action",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "cmf_ContentType",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "cmf_Style",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "CommandBarButton",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "CommandBarItem",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "CommandBarMenuButton",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "CommandBarSection",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "ConversionRule",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "ConversionServer",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "ConversionTask",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "ConverterType",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "Dashboard",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "DatabaseUpgrade",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "dr_RelationshipFamily",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "effs_model",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "effs_scope",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "effs_variable",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "EMail Message",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "ES_Agent",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "ES_Crawler",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "FileType",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Form",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "GlobalPresentationConfig",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "gn_GraphViewDefinition",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "gn_ViewCard",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Grid",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Identity",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "ItemType",
+	"Property": "name",
+	"Checked": true
+}, {
+	"ItemType": "Language",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Life Cycle Map",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "List",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Locale",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Message",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "Method",
+	"Property": "name",
+	"Checked": true
+}, {
+	"ItemType": "mpo_MassPromotion",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "PackageDefinition",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Permission",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Preference",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "PresentationConfiguration",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "qry_QueryDefinition",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "rb_TreeGridViewDefinition",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "RelationshipType",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Report",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Revision",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "SavedSearch",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "Sequence",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "SQL",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "SystemEvent",
+	"Property": "keyed_name",
+	"Checked": false
+}, {
+	"ItemType": "Team",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "User",
+	"Property": "login_name",
+	"Checked": false
+}, {
+	"ItemType": "Variable",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Vault",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Viewer",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "WMSet",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "WMSettings",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "WMType",
+	"Property": "name",
+	"Checked": false
+}, {
+	"ItemType": "Workflow Map",
+	"Property": "name",
+	"Checked": true
+}
+]

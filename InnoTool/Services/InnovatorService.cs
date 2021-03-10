@@ -2,6 +2,7 @@
 using InnoTool.Models;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace InnoTool.Services
@@ -34,7 +35,7 @@ namespace InnoTool.Services
             }
         }
 
-        public async Task<bool> TestConnectionSettings()
+        public bool TestConnectionSettings()
         {
             var ret = false;
             var conn = IomFactory.CreateHttpServerConnection(
@@ -55,7 +56,7 @@ namespace InnoTool.Services
 
             return ret;
         }
-        public async Task<IEnumerable<Item>> GetItemsAsync(string type)
+        public IEnumerable<Item> GetItems(string type)
         {
             var ret = new List<Item>();
             try
@@ -75,28 +76,59 @@ namespace InnoTool.Services
 
             return ret;
         }
-        public async Task<IEnumerable<Item>> GetItemsAsync(IEnumerable<ItemTypeSetting> itemTypes)
+        public IEnumerable<Item> GetItems(IEnumerable<ItemTypeSetting> itemTypes, DateTime? from = null, DateTime? to = null)
         {
             var ret = new List<Item>();
 
             try
             {
+                var strings = new List<string>();
                 foreach (var itemType in itemTypes)
                 {
-                    var tmp = itemType.ItemType.Trim();
-                    var items = Inn.newItem(tmp, "get");
-                    items = items.apply();
-                    if (items.isError())
+                    var nameField = itemType.Property.Trim().Replace("'", "''").Replace("[", "").Replace("]", "");
+                    var type = itemType.ItemType.Trim().Replace("'", "''");
+                    var tableName = type.Replace(" ", "_");
+                    var str = $@"(
+SELECT
+[Id],
+[{nameField}] AS [name],
+'{type}' AS type,
+CONVERT(NVARCHAR(30), [modified_on], 126) AS [modified_on],
+CONVERT(NVARCHAR(30), [created_on], 126) AS [created_on]
+FROM
+    innovator.[{tableName}]
+                    )";
+                    strings.Add(str);
+                }
+                var sql = new StringBuilder("SELECT t.[Id], t.[Name], t.[type], t.[modified_on], t.[created_on], pd.name AS [package] FROM (");
+                sql.AppendLine(string.Join(" UNION ALL ", strings));
+                sql.AppendLine(") AS t ");
+                sql.AppendLine(" LEFT JOIN innovator.PACKAGEELEMENT AS pe ON pe.[element_id] = t.[id] ");
+                sql.AppendLine(" LEFT JOIN innovator.PACKAGEGROUP AS pg ON pg.[Id] = pe.[source_id] ");
+                sql.AppendLine(" LEFT JOIN innovator.PACKAGEDEFINITION AS pd ON pd.[Id] = pg.[source_id] ");
+                if (from.HasValue || to.HasValue)
+                {
+                    sql.AppendLine(" WHERE 1=1 ");
+                    if (from.HasValue)
                     {
-                        continue;
+                        sql.AppendLine($" AND t.modified_on>='{from.Value.ToString("yyyy-MM-dd")}'");
                     }
-                    var c = items.getItemCount();
-                    for (int i = 0; i < c; i++)
+                    if (to.HasValue)
                     {
-                        var tmpItem = items.getItemByIndex(i);
-                        tmpItem.setProperty("diff_name_prop", itemType.Property.Trim());
-                        ret.Add(tmpItem);
+                        sql.AppendLine($" AND t.modified_on<='{to.Value.ToString("yyyy-MM-dd")}'");
                     }
+                }
+
+                var items = Inn.applySQL(sql.ToString());
+                if (items.isError())
+                {
+                    throw new Exception(items.getErrorDetail());
+                }
+                var c = items.getItemCount();
+                for (int i = 0; i < c; i++)
+                {
+                    var tmpItem = items.getItemByIndex(i);
+                    ret.Add(tmpItem);
                 }
             }
             catch (Exception ex)

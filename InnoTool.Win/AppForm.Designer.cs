@@ -87,19 +87,21 @@ namespace InnoTool.Win
             this.itemTypesGroup = new System.Windows.Forms.GroupBox();
             this.chkItemTypes = new System.Windows.Forms.CheckedListBox();
             this.btnCheckAll = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChangeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMod1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comMod2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreated1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreated2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabChanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridChanges)).BeginInit();
@@ -149,11 +151,12 @@ namespace InnoTool.Win
             this.gridChanges.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridChanges.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridChanges.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn6,
-            this.Id});
+            this.g2c1,
+            this.g2c2,
+            this.g2c3,
+            this.g2c4,
+            this.g2c5,
+            this.g2c6});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -337,14 +340,15 @@ namespace InnoTool.Win
             this.gridCompare.AllowUserToDeleteRows = false;
             this.gridCompare.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCompare.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colType,
-            this.colName,
-            this.colChangeType,
-            this.colMod1,
-            this.comMod2,
-            this.colCreated1,
-            this.colCreated2,
-            this.colId});
+            this.g1c1,
+            this.g1c2,
+            this.g1c3,
+            this.g1c4,
+            this.g1c5,
+            this.g1c6,
+            this.g1c7,
+            this.g1c8,
+            this.g1c9});
             this.gridCompare.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCompare.Location = new System.Drawing.Point(0, 0);
             this.gridCompare.Name = "gridCompare";
@@ -697,104 +701,118 @@ namespace InnoTool.Win
             this.btnCheckAll.UseVisualStyleBackColor = true;
             this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // g1c1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Type";
-            this.dataGridViewTextBoxColumn1.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
+            this.g1c1.DataPropertyName = "Type";
+            this.g1c1.FillWeight = 200F;
+            this.g1c1.HeaderText = "Type";
+            this.g1c1.Name = "g1c1";
+            this.g1c1.ReadOnly = true;
+            this.g1c1.Width = 200;
             // 
-            // dataGridViewTextBoxColumn2
+            // g1c2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 200;
+            this.g1c2.DataPropertyName = "Name";
+            this.g1c2.FillWeight = 200F;
+            this.g1c2.HeaderText = "Name";
+            this.g1c2.Name = "g1c2";
+            this.g1c2.ReadOnly = true;
+            this.g1c2.Width = 200;
             // 
-            // dataGridViewTextBoxColumn4
+            // g1c3
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "ModifiedDate";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Modified";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.g1c3.DataPropertyName = "ChangeType";
+            this.g1c3.HeaderText = "Change";
+            this.g1c3.Name = "g1c3";
+            this.g1c3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // g1c4
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "CreatedDate";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Created";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.g1c4.DataPropertyName = "ModifiedDate1";
+            this.g1c4.HeaderText = "Modified 1";
+            this.g1c4.Name = "g1c4";
+            this.g1c4.ReadOnly = true;
             // 
-            // Id
+            // g1c5
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.g1c5.DataPropertyName = "ModifiedDate2";
+            this.g1c5.HeaderText = "Modiefied 2";
+            this.g1c5.Name = "g1c5";
+            this.g1c5.ReadOnly = true;
             // 
-            // colType
+            // g1c6
             // 
-            this.colType.DataPropertyName = "Type";
-            this.colType.FillWeight = 200F;
-            this.colType.HeaderText = "Type";
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            this.colType.Width = 200;
+            this.g1c6.DataPropertyName = "CreatedDate1";
+            this.g1c6.HeaderText = "Created 1";
+            this.g1c6.Name = "g1c6";
+            this.g1c6.ReadOnly = true;
             // 
-            // colName
+            // g1c7
             // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.FillWeight = 200F;
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 200;
+            this.g1c7.DataPropertyName = "CreatedDate2";
+            this.g1c7.HeaderText = "Created 2";
+            this.g1c7.Name = "g1c7";
+            this.g1c7.ReadOnly = true;
             // 
-            // colChangeType
+            // g1c8
             // 
-            this.colChangeType.DataPropertyName = "ChangeType";
-            this.colChangeType.HeaderText = "Change";
-            this.colChangeType.Name = "colChangeType";
-            this.colChangeType.ReadOnly = true;
+            this.g1c8.DataPropertyName = "Id";
+            this.g1c8.HeaderText = "ID";
+            this.g1c8.Name = "g1c8";
+            this.g1c8.ReadOnly = true;
             // 
-            // colMod1
+            // g1c9
             // 
-            this.colMod1.DataPropertyName = "ModifiedDate1";
-            this.colMod1.HeaderText = "Modified 1";
-            this.colMod1.Name = "colMod1";
-            this.colMod1.ReadOnly = true;
+            this.g1c9.DataPropertyName = "Package";
+            this.g1c9.HeaderText = "Package";
+            this.g1c9.Name = "g1c9";
+            this.g1c9.ReadOnly = true;
             // 
-            // comMod2
+            // g2c1
             // 
-            this.comMod2.DataPropertyName = "ModifiedDate2";
-            this.comMod2.HeaderText = "Modiefied 2";
-            this.comMod2.Name = "comMod2";
-            this.comMod2.ReadOnly = true;
+            this.g2c1.DataPropertyName = "Type";
+            this.g2c1.FillWeight = 200F;
+            this.g2c1.HeaderText = "Type";
+            this.g2c1.Name = "g2c1";
+            this.g2c1.ReadOnly = true;
+            this.g2c1.Width = 200;
             // 
-            // colCreated1
+            // g2c2
             // 
-            this.colCreated1.DataPropertyName = "CreatedDate1";
-            this.colCreated1.HeaderText = "Created 1";
-            this.colCreated1.Name = "colCreated1";
-            this.colCreated1.ReadOnly = true;
+            this.g2c2.DataPropertyName = "Name";
+            this.g2c2.FillWeight = 200F;
+            this.g2c2.HeaderText = "Name";
+            this.g2c2.Name = "g2c2";
+            this.g2c2.ReadOnly = true;
+            this.g2c2.Width = 200;
             // 
-            // colCreated2
+            // g2c3
             // 
-            this.colCreated2.DataPropertyName = "CreatedDate2";
-            this.colCreated2.HeaderText = "Created 2";
-            this.colCreated2.Name = "colCreated2";
-            this.colCreated2.ReadOnly = true;
+            this.g2c3.DataPropertyName = "ModifiedDate";
+            this.g2c3.HeaderText = "Modified";
+            this.g2c3.Name = "g2c3";
+            this.g2c3.ReadOnly = true;
             // 
-            // colId
+            // g2c4
             // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "ID";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
+            this.g2c4.DataPropertyName = "CreatedDate";
+            this.g2c4.HeaderText = "Created";
+            this.g2c4.Name = "g2c4";
+            this.g2c4.ReadOnly = true;
+            // 
+            // g2c5
+            // 
+            this.g2c5.DataPropertyName = "Id";
+            this.g2c5.HeaderText = "ID";
+            this.g2c5.Name = "g2c5";
+            this.g2c5.ReadOnly = true;
+            // 
+            // g2c6
+            // 
+            this.g2c6.DataPropertyName = "Package";
+            this.g2c6.HeaderText = "Package";
+            this.g2c6.Name = "g2c6";
+            this.g2c6.ReadOnly = true;
             // 
             // AppForm
             // 
@@ -894,19 +912,21 @@ namespace InnoTool.Win
         private System.Windows.Forms.Button btnCheckAll;
         private System.Windows.Forms.Button btnPackage1;
         private System.Windows.Forms.Button btnPackage2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChangeType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMod1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comMod2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreated1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreated2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g1c9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g2c1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g2c2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g2c3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g2c4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g2c5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn g2c6;
     }
 }
 

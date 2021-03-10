@@ -17,7 +17,7 @@ namespace InnoTool.Win
     public partial class SettingsItemTypes : Form
     {
         private AppForm mainForm;
-        private Settings settings;
+        private AppSettings settings;
         private bool gridDirty = false;
 
         public SettingsItemTypes()
@@ -55,7 +55,7 @@ namespace InnoTool.Win
 
         private void LoadSettings()
         {
-            settings = (new ConfigService()).GetSettings();
+            settings = (new ConfigService()).Settings;
         }
 
         bool IsGridDirty(DataGridView grid)
@@ -81,7 +81,7 @@ namespace InnoTool.Win
 
         private void CloseReloadSettings()
         {
-            mainForm.LoadSettings();
+            mainForm.LoadSettings(true);
             mainForm.PopulateItemTypes();
             Close();
         }
@@ -118,15 +118,15 @@ namespace InnoTool.Win
         {
             try
             {
-                var data = JsonConvert.DeserializeObject<IEnumerable<string>>(File.ReadAllText("default_item_types.txt"));
+                var data = JsonConvert.DeserializeObject<IEnumerable<ItemTypeSetting>>(File.ReadAllText("default_item_types.json"));
                 List<ItemTypeSetting> types = new List<ItemTypeSetting>();
-                foreach (var str in data)
-                {
-                    types.Add(new ItemTypeSetting { ItemType = str.Trim(), Property = "name", Checked = true });
-                }
-                LoadGrid(types);
+                //foreach (var str in data)
+                //{
+                //    types.Add(new ItemTypeSetting { ItemType = str.Trim(), Property = "name", Checked = true });
+                //}
+                LoadGrid(data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }

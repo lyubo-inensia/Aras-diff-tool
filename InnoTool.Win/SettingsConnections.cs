@@ -16,7 +16,7 @@ namespace InnoTool.Win
             settings = mainForm.Settings;
         }
 
-        Settings settings;
+        AppSettings settings;
         AppForm mainForm;
 
         void ReloadSettings()
@@ -97,7 +97,7 @@ namespace InnoTool.Win
             var s = new InnovatorService(c);
             try
             {
-                if (await s.TestConnectionSettings())
+                if (s.TestConnectionSettings())
                 {
                     MessageBox.Show("Connection successful.");
                 }
@@ -125,7 +125,10 @@ namespace InnoTool.Win
                 Username = txtConn1User.Text,
                 Password = txtConn1Pass.Text
             };
-            s.SaveConnection(c);
+            var conns = new List<ConnectionSettings>(settings.Connections);
+            conns.Add(c);
+            settings.Connections = conns;
+            s.SaveSettings(settings);
             ReloadSettings();
             MessageBox.Show("Connection saved successfully");
         }
@@ -133,21 +136,25 @@ namespace InnoTool.Win
         private void btnConn1Delete_Click(object sender, EventArgs e)
         {
             var s = new ConfigService();
-            var c = txtConn1Name.Text;
+            var conName = txtConn1Name.Text;
             try
             {
-                s.DeleteConnection(c);
+                var conns = new List<ConnectionSettings>(settings.Connections);
+                var con = conns.FirstOrDefault(c => c.Name == conName);
+                if (con != null)
+                {
+                    conns.Remove(con);
+                }
+                settings.Connections = conns;
+                s.SaveSettings(settings);
             }
             catch (Exception)
             {
 
             }
             ReloadSettings();
-            MessageBox.Show($"\"{c}\" removed successfully");
+            MessageBox.Show($"\"{conName}\" removed successfully");
         }
-
-        
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {

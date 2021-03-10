@@ -34,6 +34,7 @@ namespace InnoTool.Win
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.chkMoveItems = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listPackages
@@ -81,11 +82,23 @@ namespace InnoTool.Win
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // chkMoveItems
+            // 
+            this.chkMoveItems.AutoSize = true;
+            this.chkMoveItems.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkMoveItems.Location = new System.Drawing.Point(212, 410);
+            this.chkMoveItems.Name = "chkMoveItems";
+            this.chkMoveItems.Size = new System.Drawing.Size(80, 17);
+            this.chkMoveItems.TabIndex = 5;
+            this.chkMoveItems.Text = "Move items";
+            this.chkMoveItems.UseVisualStyleBackColor = true;
+            // 
             // AddToPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 452);
+            this.Controls.Add(this.chkMoveItems);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnCreate);
@@ -95,7 +108,7 @@ namespace InnoTool.Win
             this.MinimizeBox = false;
             this.Name = "AddToPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddToPackage";
+            this.Text = "Add To Package";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,5 +122,6 @@ namespace InnoTool.Win
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.CheckBox chkMoveItems;
     }
 }

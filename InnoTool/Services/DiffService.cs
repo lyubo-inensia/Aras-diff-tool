@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace InnoTool.Services
 {
-    public class DiffService
+    public class DiffService : IDiffService
     {
-        public IEnumerable<DiffItem> CompareItems(IEnumerable<Item> items1, IEnumerable<Item> items2, DateTime? from = null, DateTime? to = null)
+        public IEnumerable<DiffItem> CompareItems(IEnumerable<Item> items1, IEnumerable<Item> items2)
         {
             List<DiffItem> ret = new List<DiffItem>();
             List<string> names = new List<string>();
@@ -43,21 +43,13 @@ namespace InnoTool.Services
                     }
                 }
             }
-            if (from.HasValue)
-            {
-                ret = ret.Where(e => e.ModifiedDate1 >= from).ToList();
-            }
-            if (to.HasValue)
-            {
-                ret = ret.Where(e => e.ModifiedDate1 <= to).ToList();
-            }
 
             return ret;
         }
 
 
 
-        public IEnumerable<SingleItem> ListItems(IEnumerable<Item> items1, DateTime from, DateTime to)
+        public IEnumerable<SingleItem> ListItems(IEnumerable<Item> items1)
         {
             List<SingleItem> ret = new List<SingleItem>();
             List<string> names = new List<string>();
@@ -68,9 +60,7 @@ namespace InnoTool.Services
             {
                 ret.Add(new SingleItem(data1[name]));
             }
-            ret = ret.Where(e => e.ModifiedDate >= from).ToList();
-            ret = ret.Where(e => e.ModifiedDate <= to).ToList();
-            
+
             return ret;
         }
 
@@ -79,7 +69,7 @@ namespace InnoTool.Services
             Dictionary<string, Item> ret = new Dictionary<string, Item>();
             foreach (var item in items)
             {
-                string key = item.getProperty(item.getProperty(BaseGridItem.NameProperty, "name"), "");
+                string key = item.getProperty("name", "");
                 if (!ret.ContainsKey(key))
                 {
                     ret.Add(key, item);

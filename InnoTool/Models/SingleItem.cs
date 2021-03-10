@@ -15,8 +15,9 @@ namespace InnoTool.Models
             DateTime.TryParse(item.getProperty("created_on"), out created);
 
             Id = item.getID();
-            Type = item?.getType() ?? "";
-            Name = item?.getProperty(GetNameProperty(item), "") ?? "";
+            Type = item?.getProperty("type") ?? "";
+            Name = item?.getProperty("name", "") ?? "";
+            Package = item?.getProperty("package", "") ?? "";
             ModifiedDate = mod;
             CreatedDate = created;
 

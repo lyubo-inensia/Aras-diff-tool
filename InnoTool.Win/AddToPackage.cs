@@ -15,14 +15,16 @@ namespace InnoTool.Win
     public partial class AddToPackage : Form
     {
         private IEnumerable<PackageDefinition> packages;
-        private PackageService PackService;
-
+        private IPackageService PackService;
         public IEnumerable<IBaseItem> ItemsToAdd { get; }
+        public DataGridView ItemsGrid { get; }
 
-        public AddToPackage(ConnectionSettings conn, IEnumerable<IBaseItem> itemsToAdd)
+        public AddToPackage(IPackageService packService, IEnumerable<IBaseItem> itemsToAdd, DataGridView itemsGrid)
         {
+            PackService = packService;
+            ItemsToAdd = itemsToAdd;
+            ItemsGrid = itemsGrid;
             InitializeComponent();
-            PackService = new PackageService(new InnovatorService(conn));
 
             var task = Task.Run(() => {
                 packages = PackService.GetPackages().GetAwaiter().GetResult();
@@ -30,7 +32,6 @@ namespace InnoTool.Win
                 .ContinueWith((t) => {
                     this.Invoke(new MethodInvoker(delegate { PopulatePackagesList(packages); }));
                 });
-            ItemsToAdd = itemsToAdd;
         }
         private void PopulatePackagesList(IEnumerable<PackageDefinition> packs)
         {
@@ -56,9 +57,10 @@ namespace InnoTool.Win
             {
                 try
                 {
-                    var res = PackService.AddItemToPackage(pack.Id, ItemsToAdd);
-                    msg = res.ToString() + " items successfully added to \"" + pack.Name + "\"";
+                    var res = PackService.AddItemsToPackage(pack.Id, ItemsToAdd, pack.Name, chkMoveItems.Checked);
+                    msg = res.Count().ToString() + " items successfully added to \"" + pack.Name + "\"";
                     MessageBox.Show(msg);
+                    ((AppForm)ItemsGrid.FindForm()).UpdateItemsPackages(res, ItemsGrid);
                     Close();
                 }
                 catch (Exception ex)

@@ -7,14 +7,12 @@ using System.Linq;
 
 namespace InnoTool.Services
 {
-    public class ConfigService
+    public class ConfigService : IConfigService
     {
-        public IEnumerable<ConnectionSettings> GetConnections()
+        protected string SettingsFilePath
         {
-            return GetSettings().Connections;
-        }
-
-        protected string SettingsFilePath { get {
+            get
+            {
                 var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "InnotTool");
                 if (!Directory.Exists(path))
                 {
@@ -23,26 +21,12 @@ namespace InnoTool.Services
 
                 return Path.Combine(path, "settings.json");
 
-            } }
-        protected string DefaultSettingsFile { get; } = "settings.template.json";
-
-        public bool SaveConnections(IEnumerable<ConnectionSettings> connections)
-        {
-            var ret = false;
-            try
-            {
-                var settings = GetSettings();
-                settings.Connections = connections;
-                ret = SaveSettings(settings);
             }
-            catch (Exception ex)
-            {
-            }
-
-            return ret;
         }
+        protected string DefaultSettingsFile { get; } = "settings.template.json";
+        protected AppSettings _settings;
 
-        public bool SaveSettings(Settings settings)
+        public bool SaveSettings(AppSettings settings)
         {
             var ret = false;
             try
@@ -56,6 +40,7 @@ namespace InnoTool.Services
                 {
                 }
                 File.WriteAllText(SettingsFilePath, json);
+                _settings = settings;
                 ret = true;
             }
             catch (Exception ex)
@@ -64,47 +49,36 @@ namespace InnoTool.Services
 
             return ret;
         }
-
-        public bool SaveConnection(ConnectionSettings conn)
+        public AppSettings Reload()
         {
-            DeleteConnection(conn.Name);
-            var conns = GetConnections().ToList();
-            conns.Add(conn);
+            _settings = null;
 
-            return SaveConnections(conns);
+            return Settings;
         }
-
-        public bool DeleteConnection(string name)
+        public AppSettings Settings
         {
-            var conns = GetConnections().ToList();
-            var c = conns.FirstOrDefault(e => e.Name == name);
-            if (c != null) {
-                conns.Remove(c);
-            }
-            SaveConnections(conns);
-
-            return true;
-        }
-
-        public Settings GetSettings()
-        {
-            Settings ret = new Settings();
-            try
+            get
             {
-                if (!File.Exists(SettingsFilePath))
+                if (_settings == null)
                 {
-                    File.Copy(DefaultSettingsFile, SettingsFilePath);
-                }
-                ret = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(SettingsFilePath));
-                var sorted = ret.ItemTypes.ToList().OrderBy(str => str.ToString(), StringComparer.CurrentCultureIgnoreCase).ToList();
-                ret.ItemTypes = sorted;
-            }
-            catch (Exception ex)
-            {
-                
-            }
+                    try
+                    {
+                        if (!File.Exists(SettingsFilePath))
+                        {
+                            File.Copy(DefaultSettingsFile, SettingsFilePath);
+                        }
+                        _settings = JsonConvert.DeserializeObject<AppSettings>(File.ReadAllText(SettingsFilePath));
+                        var sorted = _settings.ItemTypes.ToList().OrderBy(str => str.ToString(), StringComparer.CurrentCultureIgnoreCase).ToList();
+                        _settings.ItemTypes = sorted;
+                    }
+                    catch (Exception ex)
+                    {
 
-            return ret;
+                    }
+                }
+
+                return _settings;
+            }
         }
     }
 }

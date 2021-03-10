@@ -1,4 +1,5 @@
-﻿using InnoTool.Models;
+﻿using InnoTool.Factories;
+using InnoTool.Models;
 using InnoTool.Services;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,23 @@ namespace InnoTool.Win
 {
     public partial class AppForm : Form
     {
-        public AppForm()
+        public AppForm(IMainFactory factory = null)
         {
+            Factory = factory ?? new MainFactory();
             LoadSettings();
             InitializeComponent();
         }
 
-        public void LoadSettings()
+        public void LoadSettings(bool reload = false)
         {
-            Settings = (new ConfigService()).GetSettings();
+            Settings = reload? Factory.GetConfigService().Reload(): Factory.GetConfigService().Settings;
         }
-
         public ConnectionSettings Connection1 { get; set; }
         public ConnectionSettings Connection2 { get; set; }
         public ConnectionSettings Connection3 { get; set; }
-        public Settings Settings { get; set; }
+        public AppSettings Settings { get; set; }
+        public IMainFactory Factory { get; }
+
         private void formMain_Load(object sender, EventArgs e)
         {
             PopulateItemTypes();
@@ -95,7 +98,7 @@ namespace InnoTool.Win
             
         }
 
-        public async Task LoadDataAsync()
+        public void LoadData()
         {
             try
             {
@@ -106,11 +109,9 @@ namespace InnoTool.Win
                 DateTime? to = null;
                 if (chkFrom1.Checked) from = dateTimePicker1.Value;
                 if (chkTo1.Checked) to = dateTimePicker2.Value;
-                var diff = (new DiffService()).CompareItems(
-                    await inn1.GetItemsAsync(itemTypes),
-                    await inn2.GetItemsAsync(itemTypes),
-                    from,
-                    to
+                var diff = Factory.GetDiffService().CompareItems(
+                    inn1.GetItems(itemTypes, from, to),
+                    inn2.GetItems(itemTypes, from, to)
                     );
                 this.BeginInvoke((Action)(() =>
                 {
@@ -127,6 +128,10 @@ namespace InnoTool.Win
         void BindDiffGrid(IEnumerable<DiffItem> diffs)
         {
             gridCompare.DataSource = diffs;
+            for(int i = 1; i <= gridCompare.ColumnCount; i++)
+            {
+                gridCompare.Columns[$"g1c{i}"].DisplayIndex = i - 1;
+            }
             foreach(DataGridViewRow r in gridCompare.Rows)
             {
                 var color = Color.LightGreen;
@@ -143,7 +148,7 @@ namespace InnoTool.Win
             }
         }
 
-        public async Task LoadData2Async()
+        public void LoadData2()
         {
             try
             {
@@ -152,10 +157,8 @@ namespace InnoTool.Win
                 DateTime from = dateCheckFrom.Value;
                 DateTime to = dateCheckTo.Value;
 
-                var res = (new DiffService()).ListItems(
-                    await inn1.GetItemsAsync(itemTypes),
-                    from,
-                    to
+                var res = Factory.GetDiffService().ListItems(
+                    inn1.GetItems(itemTypes, from, to)
                     );
                 this.BeginInvoke((Action) (() => {
                     BindCheckGrid(res);
@@ -172,6 +175,10 @@ namespace InnoTool.Win
         void BindCheckGrid(IEnumerable<SingleItem> res)
         {
             gridChanges.DataSource = res;
+            for (int i = 1; i <= gridChanges.ColumnCount; i++)
+            {
+                gridChanges.Columns[$"g2c{i}"].DisplayIndex = i - 1;
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -217,7 +224,7 @@ namespace InnoTool.Win
                 return;
             }
             imgLoadingCompare.Visible = true;
-            await Task.Run(() => LoadDataAsync());
+            await Task.Run(() => LoadData());
             
         }
 
@@ -286,7 +293,7 @@ namespace InnoTool.Win
                 return;
             }
             imgLoadingCheck.Visible = true;
-            await Task.Run(() => LoadData2Async());
+            await Task.Run(() => LoadData2());
         }
 
         private void btnCheckAll_Click(object sender, EventArgs e)
@@ -337,9 +344,9 @@ namespace InnoTool.Win
                 {
                     continue;
                 }
-                items.Add(item);
+                items.Add(item); 
             }
-            var f = new AddToPackage(conn, items);
+            var f = new AddToPackage(Factory.GetPackageService(conn), items, grid);
             f.ShowDialog();
         }
         private void btnPackage1_Click(object sender, EventArgs e)
@@ -350,6 +357,40 @@ namespace InnoTool.Win
         private void btnPackage2_Click(object sender, EventArgs e)
         {
             AddToPackage(gridCompare, Connection1);
+        }
+        public void UpdateItemsPackages(IEnumerable<IBaseItem> items, DataGridView grid)
+        {
+            if (items.Count() == 0)
+            {
+                return;
+            }
+            try
+            {
+                foreach (var item in items)
+                {
+                    foreach (var r in grid.Rows)
+                    {
+
+                        var row = (DataGridViewRow)r;
+                        var bi = (IBaseItem)row.DataBoundItem;
+                        if (bi.Id != item.Id)
+                        {
+                            continue;
+                        }
+
+                        var cellName = "g2c6";
+                        if (grid.Name.IndexOf("compare", StringComparison.InvariantCultureIgnoreCase) > -1)
+                        {
+                            cellName = "g1c9";
+                        }
+                        row.Cells[cellName].Value = item.Package;
+                    }
+                }
+                grid.Refresh();
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }
