@@ -34,7 +34,7 @@ namespace InnoTool.Win
         {
             PopulateItemTypes();
             PopulateConnections();
-            dateCheckFrom.Value = DateTime.Now.AddDays(-790);
+            dateCheckFrom.Value = DateTime.Now.AddDays(-14);
             if (Settings.Connections.Count() == 0)
             {
                 MessageBox.Show("You have no saved connections. Use Settings menu to create Innovator connections.", 
