@@ -35,6 +35,12 @@ namespace InnoTool.Win
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabChanges = new System.Windows.Forms.TabPage();
             this.gridChanges = new System.Windows.Forms.DataGridView();
+            this.g2c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g2c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPackage1 = new System.Windows.Forms.Button();
             this.imgLoadingCheck = new System.Windows.Forms.PictureBox();
@@ -52,6 +58,15 @@ namespace InnoTool.Win
             this.tabCompare = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gridCompare = new System.Windows.Forms.DataGridView();
+            this.g1c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.g1c9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPackage2 = new System.Windows.Forms.Button();
             this.imgLoadingCompare = new System.Windows.Forms.PictureBox();
@@ -87,21 +102,6 @@ namespace InnoTool.Win
             this.itemTypesGroup = new System.Windows.Forms.GroupBox();
             this.chkItemTypes = new System.Windows.Forms.CheckedListBox();
             this.btnCheckAll = new System.Windows.Forms.Button();
-            this.g1c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g1c9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g2c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g2c2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g2c3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g2c4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g2c5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.g2c6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabChanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridChanges)).BeginInit();
@@ -171,6 +171,52 @@ namespace InnoTool.Win
             this.gridChanges.ReadOnly = true;
             this.gridChanges.Size = new System.Drawing.Size(1076, 581);
             this.gridChanges.TabIndex = 14;
+            // 
+            // g2c1
+            // 
+            this.g2c1.DataPropertyName = "Type";
+            this.g2c1.FillWeight = 200F;
+            this.g2c1.HeaderText = "Type";
+            this.g2c1.Name = "g2c1";
+            this.g2c1.ReadOnly = true;
+            this.g2c1.Width = 200;
+            // 
+            // g2c2
+            // 
+            this.g2c2.DataPropertyName = "Name";
+            this.g2c2.FillWeight = 200F;
+            this.g2c2.HeaderText = "Name";
+            this.g2c2.Name = "g2c2";
+            this.g2c2.ReadOnly = true;
+            this.g2c2.Width = 200;
+            // 
+            // g2c3
+            // 
+            this.g2c3.DataPropertyName = "ModifiedDate";
+            this.g2c3.HeaderText = "Modified";
+            this.g2c3.Name = "g2c3";
+            this.g2c3.ReadOnly = true;
+            // 
+            // g2c4
+            // 
+            this.g2c4.DataPropertyName = "CreatedDate";
+            this.g2c4.HeaderText = "Created";
+            this.g2c4.Name = "g2c4";
+            this.g2c4.ReadOnly = true;
+            // 
+            // g2c5
+            // 
+            this.g2c5.DataPropertyName = "Id";
+            this.g2c5.HeaderText = "ID";
+            this.g2c5.Name = "g2c5";
+            this.g2c5.ReadOnly = true;
+            // 
+            // g2c6
+            // 
+            this.g2c6.DataPropertyName = "Package";
+            this.g2c6.HeaderText = "Package";
+            this.g2c6.Name = "g2c6";
+            this.g2c6.ReadOnly = true;
             // 
             // panel1
             // 
@@ -300,7 +346,7 @@ namespace InnoTool.Win
             this.dateCheckFrom.Name = "dateCheckFrom";
             this.dateCheckFrom.Size = new System.Drawing.Size(200, 20);
             this.dateCheckFrom.TabIndex = 11;
-            this.dateCheckFrom.Value = new System.DateTime(2021, 2, 18, 0, 0, 0, 0);
+            this.dateCheckFrom.Value = new System.DateTime(2018, 2, 18, 0, 0, 0, 0);
             // 
             // btnCheck
             // 
@@ -355,6 +401,73 @@ namespace InnoTool.Win
             this.gridCompare.ReadOnly = true;
             this.gridCompare.Size = new System.Drawing.Size(1076, 581);
             this.gridCompare.TabIndex = 20;
+            // 
+            // g1c1
+            // 
+            this.g1c1.DataPropertyName = "Type";
+            this.g1c1.FillWeight = 200F;
+            this.g1c1.HeaderText = "Type";
+            this.g1c1.Name = "g1c1";
+            this.g1c1.ReadOnly = true;
+            this.g1c1.Width = 200;
+            // 
+            // g1c2
+            // 
+            this.g1c2.DataPropertyName = "Name";
+            this.g1c2.FillWeight = 200F;
+            this.g1c2.HeaderText = "Name";
+            this.g1c2.Name = "g1c2";
+            this.g1c2.ReadOnly = true;
+            this.g1c2.Width = 200;
+            // 
+            // g1c3
+            // 
+            this.g1c3.DataPropertyName = "ChangeType";
+            this.g1c3.HeaderText = "Change";
+            this.g1c3.Name = "g1c3";
+            this.g1c3.ReadOnly = true;
+            // 
+            // g1c4
+            // 
+            this.g1c4.DataPropertyName = "ModifiedDate1";
+            this.g1c4.HeaderText = "Modified 1";
+            this.g1c4.Name = "g1c4";
+            this.g1c4.ReadOnly = true;
+            // 
+            // g1c5
+            // 
+            this.g1c5.DataPropertyName = "ModifiedDate2";
+            this.g1c5.HeaderText = "Modiefied 2";
+            this.g1c5.Name = "g1c5";
+            this.g1c5.ReadOnly = true;
+            // 
+            // g1c6
+            // 
+            this.g1c6.DataPropertyName = "CreatedDate1";
+            this.g1c6.HeaderText = "Created 1";
+            this.g1c6.Name = "g1c6";
+            this.g1c6.ReadOnly = true;
+            // 
+            // g1c7
+            // 
+            this.g1c7.DataPropertyName = "CreatedDate2";
+            this.g1c7.HeaderText = "Created 2";
+            this.g1c7.Name = "g1c7";
+            this.g1c7.ReadOnly = true;
+            // 
+            // g1c8
+            // 
+            this.g1c8.DataPropertyName = "Id";
+            this.g1c8.HeaderText = "ID";
+            this.g1c8.Name = "g1c8";
+            this.g1c8.ReadOnly = true;
+            // 
+            // g1c9
+            // 
+            this.g1c9.DataPropertyName = "Package";
+            this.g1c9.HeaderText = "Package";
+            this.g1c9.Name = "g1c9";
+            this.g1c9.ReadOnly = true;
             // 
             // panel2
             // 
@@ -700,119 +813,6 @@ namespace InnoTool.Win
             this.btnCheckAll.Text = "Uncheck all";
             this.btnCheckAll.UseVisualStyleBackColor = true;
             this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
-            // 
-            // g1c1
-            // 
-            this.g1c1.DataPropertyName = "Type";
-            this.g1c1.FillWeight = 200F;
-            this.g1c1.HeaderText = "Type";
-            this.g1c1.Name = "g1c1";
-            this.g1c1.ReadOnly = true;
-            this.g1c1.Width = 200;
-            // 
-            // g1c2
-            // 
-            this.g1c2.DataPropertyName = "Name";
-            this.g1c2.FillWeight = 200F;
-            this.g1c2.HeaderText = "Name";
-            this.g1c2.Name = "g1c2";
-            this.g1c2.ReadOnly = true;
-            this.g1c2.Width = 200;
-            // 
-            // g1c3
-            // 
-            this.g1c3.DataPropertyName = "ChangeType";
-            this.g1c3.HeaderText = "Change";
-            this.g1c3.Name = "g1c3";
-            this.g1c3.ReadOnly = true;
-            // 
-            // g1c4
-            // 
-            this.g1c4.DataPropertyName = "ModifiedDate1";
-            this.g1c4.HeaderText = "Modified 1";
-            this.g1c4.Name = "g1c4";
-            this.g1c4.ReadOnly = true;
-            // 
-            // g1c5
-            // 
-            this.g1c5.DataPropertyName = "ModifiedDate2";
-            this.g1c5.HeaderText = "Modiefied 2";
-            this.g1c5.Name = "g1c5";
-            this.g1c5.ReadOnly = true;
-            // 
-            // g1c6
-            // 
-            this.g1c6.DataPropertyName = "CreatedDate1";
-            this.g1c6.HeaderText = "Created 1";
-            this.g1c6.Name = "g1c6";
-            this.g1c6.ReadOnly = true;
-            // 
-            // g1c7
-            // 
-            this.g1c7.DataPropertyName = "CreatedDate2";
-            this.g1c7.HeaderText = "Created 2";
-            this.g1c7.Name = "g1c7";
-            this.g1c7.ReadOnly = true;
-            // 
-            // g1c8
-            // 
-            this.g1c8.DataPropertyName = "Id";
-            this.g1c8.HeaderText = "ID";
-            this.g1c8.Name = "g1c8";
-            this.g1c8.ReadOnly = true;
-            // 
-            // g1c9
-            // 
-            this.g1c9.DataPropertyName = "Package";
-            this.g1c9.HeaderText = "Package";
-            this.g1c9.Name = "g1c9";
-            this.g1c9.ReadOnly = true;
-            // 
-            // g2c1
-            // 
-            this.g2c1.DataPropertyName = "Type";
-            this.g2c1.FillWeight = 200F;
-            this.g2c1.HeaderText = "Type";
-            this.g2c1.Name = "g2c1";
-            this.g2c1.ReadOnly = true;
-            this.g2c1.Width = 200;
-            // 
-            // g2c2
-            // 
-            this.g2c2.DataPropertyName = "Name";
-            this.g2c2.FillWeight = 200F;
-            this.g2c2.HeaderText = "Name";
-            this.g2c2.Name = "g2c2";
-            this.g2c2.ReadOnly = true;
-            this.g2c2.Width = 200;
-            // 
-            // g2c3
-            // 
-            this.g2c3.DataPropertyName = "ModifiedDate";
-            this.g2c3.HeaderText = "Modified";
-            this.g2c3.Name = "g2c3";
-            this.g2c3.ReadOnly = true;
-            // 
-            // g2c4
-            // 
-            this.g2c4.DataPropertyName = "CreatedDate";
-            this.g2c4.HeaderText = "Created";
-            this.g2c4.Name = "g2c4";
-            this.g2c4.ReadOnly = true;
-            // 
-            // g2c5
-            // 
-            this.g2c5.DataPropertyName = "Id";
-            this.g2c5.HeaderText = "ID";
-            this.g2c5.Name = "g2c5";
-            this.g2c5.ReadOnly = true;
-            // 
-            // g2c6
-            // 
-            this.g2c6.DataPropertyName = "Package";
-            this.g2c6.HeaderText = "Package";
-            this.g2c6.Name = "g2c6";
-            this.g2c6.ReadOnly = true;
             // 
             // AppForm
             // 

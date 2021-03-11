@@ -2,6 +2,7 @@
 using InnoTool.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -140,6 +141,113 @@ FROM
             return ret;
         }
 
+        protected List<IBaseItem> PopulateDependencies(List<IBaseItem> allItems, IBaseItem item, List<string> visited)
+        {
+            List<IBaseItem> ret = new List<IBaseItem>();
+
+            var deps = allItems.Where(e => e.ParentId == item.Id).Distinct();
+            if (visited.Contains(item.Id)) {
+                return ret;
+            }
+
+            visited.Add(item.Id);
+            foreach (var d in deps)
+            {
+                d.Dependencies = PopulateDependencies(allItems, d, visited);
+                if (!ret.Any(e => e.Id == d.Id)) {
+                    ret.Add(d);
+                }
+            }
+
+            return ret;
+        }
+
+        public IEnumerable<IBaseItem> GetDependencies(IBaseItem item)
+        {
+            return PopulateDependencies(GetDependencies(), item, new List<string>()); ;
+        }
+        public IEnumerable<IBaseItem> GetDependencies(IEnumerable<IBaseItem> items)
+        {
+            var ret = new List<IBaseItem>();
+            foreach (var item in items.ToList())
+            {
+                item.Dependencies = GetDependencies(item);
+                ret.Add(item);
+            }
+
+            return ret;
+        }
+
+        static List<IBaseItem> depsCache = null;
+        public List<IBaseItem> GetDependencies()
+        {
+            if (depsCache != null)
+            {
+                return depsCache;
+            }
+            List<IBaseItem> ret = new List<IBaseItem>();
+            var sql = $@"
+SELECT it.[id], it.[name], it.[name] AS [type], pd.name AS [package], t.[parent_id] FROM
+(
+(
+SELECT
+	[SOURCE_ID] AS parent_id,
+    [DATA_SOURCE] AS Id    
+FROM
+[innovator].[PROPERTY]
+WHERE
+[DATA_TYPE]='item'
+)
+UNION ALL
+(
+SELECT
+	[SOURCE_ID] AS Id,
+    [DATA_SOURCE] AS  parent_id   
+FROM
+[innovator].[PROPERTY]
+WHERE
+[DATA_TYPE]='item'
+)
+UNION ALL
+(
+SELECT
+	[SOURCE_ID] AS Id ,
+    [RELATED_ID] AS parent_id  
+FROM
+[innovator].[RELATIONSHIPTYPE]
+)
+UNION ALL
+(
+SELECT
+	[SOURCE_ID] AS parent_id,
+    [RELATED_ID] AS Id  
+FROM
+[innovator].[RELATIONSHIPTYPE]
+)
+) AS t
+INNER JOIN
+[innovator].[ITEMTYPE] AS it
+ON
+it.[id]=t.[id]
+";
+            sql += " LEFT JOIN innovator.PACKAGEELEMENT AS pe ON pe.[element_id] = t.[id] ";
+            sql += " LEFT JOIN innovator.PACKAGEGROUP AS pg ON pg.[Id] = pe.[source_id] ";
+            sql += " LEFT JOIN innovator.PACKAGEDEFINITION AS pd ON pd.[Id] = pg.[source_id] ";
+            var items = Inn.applySQL(sql.ToString());
+            if (items.isError())
+            {
+                throw new Exception(items.getErrorDetail());
+            }
+            var c = items.getItemCount();
+            for (int i = 0; i < c; i++)
+            {
+                var tmpItem = items.getItemByIndex(i);
+                ret.Add(new SingleItem(tmpItem));
+            }
+            depsCache = ret;
+
+            return ret;
+        }
         public Innovator GetInnovator()
         {
             return _inn;

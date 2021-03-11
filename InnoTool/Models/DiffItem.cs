@@ -29,6 +29,7 @@ namespace InnoTool.Models
                 DateTime.TryParse(item2.getProperty("created_on"), out created2);
             }
             Id = item1?.getID() ?? "";
+            ParentId = item1?.getProperty("parent_id") ?? "";
             Type = (item1?.getProperty("type") ?? item2?.getProperty("type")) ?? "";
             Name = (item1?.getProperty("name", "") ?? item2?.getProperty("name", "")) ?? "";
             Package = item1?.getProperty("package", "") ?? "";

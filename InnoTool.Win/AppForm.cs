@@ -34,7 +34,7 @@ namespace InnoTool.Win
         {
             PopulateItemTypes();
             PopulateConnections();
-            dateCheckFrom.Value = DateTime.Now.AddDays(-7);
+            dateCheckFrom.Value = DateTime.Now.AddDays(-790);
             if (Settings.Connections.Count() == 0)
             {
                 MessageBox.Show("You have no saved connections. Use Settings menu to create Innovator connections.", 
@@ -128,9 +128,15 @@ namespace InnoTool.Win
         void BindDiffGrid(IEnumerable<DiffItem> diffs)
         {
             gridCompare.DataSource = diffs;
-            for(int i = 1; i <= gridCompare.ColumnCount; i++)
+            for(int i = 1; i < gridCompare.ColumnCount; i++)
             {
-                gridCompare.Columns[$"g1c{i}"].DisplayIndex = i - 1;
+                try
+                {
+                    gridCompare.Columns[$"g1c{i}"].DisplayIndex = i - 1;
+                }
+                catch (Exception)
+                {
+                }
             }
             foreach(DataGridViewRow r in gridCompare.Rows)
             {
@@ -175,9 +181,15 @@ namespace InnoTool.Win
         void BindCheckGrid(IEnumerable<SingleItem> res)
         {
             gridChanges.DataSource = res;
-            for (int i = 1; i <= gridChanges.ColumnCount; i++)
+            for (int i = 1; i < gridChanges.ColumnCount; i++)
             {
-                gridChanges.Columns[$"g2c{i}"].DisplayIndex = i - 1;
+                try
+                {
+                    gridChanges.Columns[$"g2c{i}"].DisplayIndex = i - 1;
+                }
+                catch (Exception)
+                {
+                }
             }
         }
 
@@ -346,7 +358,7 @@ namespace InnoTool.Win
                 }
                 items.Add(item); 
             }
-            var f = new AddToPackage(Factory.GetPackageService(conn), items, grid);
+            var f = new AddToPackage(Factory.GetPackageService(conn), Factory.GetInnovatorService(conn), items, grid);
             f.ShowDialog();
         }
         private void btnPackage1_Click(object sender, EventArgs e)

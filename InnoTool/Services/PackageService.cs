@@ -18,8 +18,13 @@ namespace InnoTool.Services
         protected const string PackageDefinitionType = "PackageDefinition";
         public InnovatorService Inn { get; }
 
+        private static IEnumerable<PackageDefinition> packageCache;
         public async Task<IEnumerable<PackageDefinition>> GetPackages()
         {
+            if (packageCache != null)
+            {
+                return packageCache;
+            }
             IEnumerable<PackageDefinition> ret = new List<PackageDefinition>();
             try
             {
@@ -31,6 +36,7 @@ namespace InnoTool.Services
                 });
             }
             catch { }
+            packageCache = ret;
 
             return ret;
         }
@@ -143,6 +149,10 @@ namespace InnoTool.Services
                 if (!item.isError())
                 {
                     ret = new PackageDefinition { Id = item.getID(), Name = item.getProperty("name") };
+                    if (packageCache != null)
+                    {
+                        packageCache.Concat(new List<PackageDefinition> { { ret} });
+                    }
                 }
             }
             catch (Exception ex)

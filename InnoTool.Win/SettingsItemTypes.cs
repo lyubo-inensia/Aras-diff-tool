@@ -24,18 +24,13 @@ namespace InnoTool.Win
         {
             InitializeComponent();
             mainForm = (AppForm)Application.OpenForms[0];
-            LoadSettings();
-            LoadGrid();
-            gridTypes.CurrentCellDirtyStateChanged += GridTypes_CurrentCellDirtyStateChanged;
         }
 
-        private void GridTypes_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        private void SettingsItemTypes_Load(object sender, EventArgs e)
         {
-            //var cell = (DataGridViewCell) sender;
-            //if (gridTypes.Row)
-            //{
-            //    gridDirty = true;
-            //}
+
+            LoadSettings();
+            LoadGrid();
         }
 
         private void LoadGrid()
@@ -119,11 +114,6 @@ namespace InnoTool.Win
             try
             {
                 var data = JsonConvert.DeserializeObject<IEnumerable<ItemTypeSetting>>(File.ReadAllText("default_item_types.json"));
-                List<ItemTypeSetting> types = new List<ItemTypeSetting>();
-                //foreach (var str in data)
-                //{
-                //    types.Add(new ItemTypeSetting { ItemType = str.Trim(), Property = "name", Checked = true });
-                //}
                 LoadGrid(data);
             }
             catch (Exception ex)

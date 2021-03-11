@@ -136,6 +136,7 @@ namespace InnoTool.Win
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item Types";
+            this.Load += new System.EventHandler(this.SettingsItemTypes_Load);
             this.pnlGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTypes)).EndInit();
             this.pnlButtons.ResumeLayout(false);

@@ -16,6 +16,7 @@ namespace InnoTool.Models
 
             Id = item.getID();
             Type = item?.getProperty("type") ?? "";
+            ParentId = item?.getProperty("parent_id") ?? "";
             Name = item?.getProperty("name", "") ?? "";
             Package = item?.getProperty("package", "") ?? "";
             ModifiedDate = mod;
