@@ -187,12 +187,14 @@ FROM
             }
             List<IBaseItem> ret = new List<IBaseItem>();
             var sql = $@"
-SELECT it.[id], it.[name], it.[name] AS [type], pd.name AS [package], t.[parent_id] FROM
+SELECT t.[id], ISNULL(it.[name],t.[name]) AS [name], ISNULL(it.[name],t.[type]) AS [type], pd.name AS [package], t.[parent_id] FROM
 (
 (
 SELECT
 	[SOURCE_ID] AS parent_id,
-    [DATA_SOURCE] AS Id    
+    [DATA_SOURCE] AS Id    ,
+    [NAME],
+    'property' AS [type]
 FROM
 [innovator].[PROPERTY]
 WHERE
@@ -202,7 +204,9 @@ UNION ALL
 (
 SELECT
 	[SOURCE_ID] AS Id,
-    [DATA_SOURCE] AS  parent_id   
+    [DATA_SOURCE] AS  parent_id ,
+    [NAME]  ,
+    'property' AS [type]
 FROM
 [innovator].[PROPERTY]
 WHERE
@@ -212,7 +216,9 @@ UNION ALL
 (
 SELECT
 	[SOURCE_ID] AS Id ,
-    [RELATED_ID] AS parent_id  
+    [RELATED_ID] AS parent_id,
+    [NAME]  ,
+    'RELATIONSHIPTYPE' AS [type]
 FROM
 [innovator].[RELATIONSHIPTYPE]
 )
@@ -220,7 +226,9 @@ UNION ALL
 (
 SELECT
 	[SOURCE_ID] AS parent_id,
-    [RELATED_ID] AS Id  
+    [RELATED_ID] AS Id,
+    [NAME]  ,
+    'RELATIONSHIPTYPE' AS [type]
 FROM
 [innovator].[RELATIONSHIPTYPE]
 )
@@ -228,7 +236,9 @@ UNION ALL
 (
 SELECT
 	[SOURCE_ID] AS parent_id,
-    [ID] AS Id  
+    [ID] AS Id,
+    [KEYED_NAME] AS [NAME]  ,
+    'PRESENTATIONCOMMANDBARSECTION' AS [type]
 FROM
 [innovator].[PRESENTATIONCOMMANDBARSECTION]
 )
@@ -236,13 +246,36 @@ UNION ALL
 (
 SELECT
 	[SOURCE_ID] AS Id,
-    [ID] AS parent_id
+    [ID] AS parent_id,
+    [KEYED_NAME] AS [NAME],
+    'PRESENTATIONCOMMANDBARSECTION' AS [type]
 FROM
 [innovator].[PRESENTATIONCOMMANDBARSECTION]
 )
 
+UNION ALL
+(
+SELECT
+	[METHOD] AS Id,
+    [ID] AS parent_id,
+    [NAME],
+    'Action' AS [type]
+FROM
+[innovator].[ACTION]
+)
+UNION ALL
+(
+SELECT
+	[METHOD] AS parent_id,
+    [ID] AS Id,
+    [NAME],
+    'Action' AS [type]
+FROM
+[innovator].[ACTION]
+)
+
 ) AS t
-INNER JOIN
+LEFT JOIN
 [innovator].[ITEMTYPE] AS it
 ON
 it.[id]=t.[id]
