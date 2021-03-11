@@ -18,12 +18,12 @@ namespace InnoTool.Services
         protected const string PackageDefinitionType = "PackageDefinition";
         public InnovatorService Inn { get; }
 
-        private static IEnumerable<PackageDefinition> packageCache;
+        private static Dictionary<int, IEnumerable<PackageDefinition>> packageCache = new Dictionary<int, IEnumerable<PackageDefinition>>();
         public async Task<IEnumerable<PackageDefinition>> GetPackages()
         {
-            if (packageCache != null)
+            if (packageCache != null && packageCache.ContainsKey(Inn.ConnSettings.GetHashCode()))
             {
-                return packageCache;
+                return packageCache[Inn.ConnSettings.GetHashCode()];
             }
             IEnumerable<PackageDefinition> ret = new List<PackageDefinition>();
             try
@@ -36,7 +36,7 @@ namespace InnoTool.Services
                 });
             }
             catch { }
-            packageCache = ret;
+            packageCache.Add(Inn.ConnSettings.GetHashCode(), ret);
 
             return ret;
         }
@@ -54,7 +54,8 @@ namespace InnoTool.Services
                     ret.Add(items.getItemByIndex(i));
                 }
             }
-            catch { }
+            catch(Exception ex) { 
+            }
 
             return ret;
         }
@@ -149,9 +150,9 @@ namespace InnoTool.Services
                 if (!item.isError())
                 {
                     ret = new PackageDefinition { Id = item.getID(), Name = item.getProperty("name") };
-                    if (packageCache != null)
+                    if (packageCache.ContainsKey(Inn.ConnSettings.GetHashCode()))
                     {
-                        packageCache.Concat(new List<PackageDefinition> { { ret} });
+                        packageCache[Inn.ConnSettings.GetHashCode()].Concat(new List<PackageDefinition> { { ret} });
                     }
                 }
             }

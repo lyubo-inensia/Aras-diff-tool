@@ -102,6 +102,8 @@ namespace InnoTool.Win
             this.itemTypesGroup = new System.Windows.Forms.GroupBox();
             this.chkItemTypes = new System.Windows.Forms.CheckedListBox();
             this.btnCheckAll = new System.Windows.Forms.Button();
+            this.lblGrigCheckCount = new System.Windows.Forms.Label();
+            this.lblGridCompareCount = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabChanges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridChanges)).BeginInit();
@@ -220,6 +222,7 @@ namespace InnoTool.Win
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblGrigCheckCount);
             this.panel1.Controls.Add(this.btnPackage1);
             this.panel1.Controls.Add(this.imgLoadingCheck);
             this.panel1.Controls.Add(this.groupBox1);
@@ -471,6 +474,7 @@ namespace InnoTool.Win
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblGridCompareCount);
             this.panel2.Controls.Add(this.btnPackage2);
             this.panel2.Controls.Add(this.imgLoadingCompare);
             this.panel2.Controls.Add(this.chkTo1);
@@ -814,6 +818,22 @@ namespace InnoTool.Win
             this.btnCheckAll.UseVisualStyleBackColor = true;
             this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
             // 
+            // lblGrigCheckCount
+            // 
+            this.lblGrigCheckCount.AutoSize = true;
+            this.lblGrigCheckCount.Location = new System.Drawing.Point(669, 78);
+            this.lblGrigCheckCount.Name = "lblGrigCheckCount";
+            this.lblGrigCheckCount.Size = new System.Drawing.Size(0, 13);
+            this.lblGrigCheckCount.TabIndex = 17;
+            // 
+            // lblGridCompareCount
+            // 
+            this.lblGridCompareCount.AutoSize = true;
+            this.lblGridCompareCount.Location = new System.Drawing.Point(746, 81);
+            this.lblGridCompareCount.Name = "lblGridCompareCount";
+            this.lblGridCompareCount.Size = new System.Drawing.Size(0, 13);
+            this.lblGridCompareCount.TabIndex = 18;
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -927,6 +947,8 @@ namespace InnoTool.Win
         private System.Windows.Forms.DataGridViewTextBoxColumn g2c4;
         private System.Windows.Forms.DataGridViewTextBoxColumn g2c5;
         private System.Windows.Forms.DataGridViewTextBoxColumn g2c6;
+        private System.Windows.Forms.Label lblGrigCheckCount;
+        private System.Windows.Forms.Label lblGridCompareCount;
     }
 }
 

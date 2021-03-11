@@ -43,14 +43,14 @@ namespace InnoTool.Win
             // listPackages
             // 
             this.listPackages.FormattingEnabled = true;
-            this.listPackages.Location = new System.Drawing.Point(384, 61);
+            this.listPackages.Location = new System.Drawing.Point(409, 65);
             this.listPackages.Name = "listPackages";
-            this.listPackages.Size = new System.Drawing.Size(381, 329);
+            this.listPackages.Size = new System.Drawing.Size(381, 355);
             this.listPackages.TabIndex = 0;
             // 
             // txtPackageName
             // 
-            this.txtPackageName.Location = new System.Drawing.Point(384, 29);
+            this.txtPackageName.Location = new System.Drawing.Point(409, 36);
             this.txtPackageName.Name = "txtPackageName";
             this.txtPackageName.Size = new System.Drawing.Size(267, 20);
             this.txtPackageName.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace InnoTool.Win
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(657, 29);
+            this.btnCreate.Location = new System.Drawing.Point(682, 36);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(108, 23);
             this.btnCreate.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace InnoTool.Win
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(657, 405);
+            this.btnAddItem.Location = new System.Drawing.Point(682, 428);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(108, 23);
             this.btnAddItem.TabIndex = 3;
@@ -78,7 +78,7 @@ namespace InnoTool.Win
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(384, 405);
+            this.btnCancel.Location = new System.Drawing.Point(409, 428);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 23);
             this.btnCancel.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace InnoTool.Win
             // 
             this.chkMoveItems.AutoSize = true;
             this.chkMoveItems.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkMoveItems.Location = new System.Drawing.Point(571, 409);
+            this.chkMoveItems.Location = new System.Drawing.Point(596, 432);
             this.chkMoveItems.Name = "chkMoveItems";
             this.chkMoveItems.Size = new System.Drawing.Size(80, 17);
             this.chkMoveItems.TabIndex = 5;
@@ -100,7 +100,7 @@ namespace InnoTool.Win
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(384, 10);
+            this.label1.Location = new System.Drawing.Point(409, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 6;
@@ -109,14 +109,14 @@ namespace InnoTool.Win
             // treeItems
             // 
             this.treeItems.CheckBoxes = true;
-            this.treeItems.Location = new System.Drawing.Point(13, 61);
+            this.treeItems.Location = new System.Drawing.Point(38, 65);
             this.treeItems.Name = "treeItems";
-            this.treeItems.Size = new System.Drawing.Size(343, 367);
+            this.treeItems.Size = new System.Drawing.Size(348, 386);
             this.treeItems.TabIndex = 8;
             // 
             // btnCheckUncheck
             // 
-            this.btnCheckUncheck.Location = new System.Drawing.Point(13, 29);
+            this.btnCheckUncheck.Location = new System.Drawing.Point(38, 33);
             this.btnCheckUncheck.Name = "btnCheckUncheck";
             this.btnCheckUncheck.Size = new System.Drawing.Size(108, 23);
             this.btnCheckUncheck.TabIndex = 9;
@@ -129,7 +129,7 @@ namespace InnoTool.Win
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 452);
+            this.ClientSize = new System.Drawing.Size(826, 481);
             this.Controls.Add(this.btnCheckUncheck);
             this.Controls.Add(this.treeItems);
             this.Controls.Add(this.label1);

@@ -178,12 +178,12 @@ FROM
             return ret;
         }
 
-        static List<IBaseItem> depsCache = null;
+        static Dictionary<int, List<IBaseItem>> depsCache = new Dictionary<int, List<IBaseItem>>();
         public List<IBaseItem> GetDependencies()
         {
-            if (depsCache != null)
+            if (depsCache.ContainsKey(ConnSettings.GetHashCode()))
             {
-                return depsCache;
+                return depsCache[ConnSettings.GetHashCode()];
             }
             List<IBaseItem> ret = new List<IBaseItem>();
             var sql = $@"
@@ -224,6 +224,23 @@ SELECT
 FROM
 [innovator].[RELATIONSHIPTYPE]
 )
+UNION ALL
+(
+SELECT
+	[SOURCE_ID] AS parent_id,
+    [ID] AS Id  
+FROM
+[innovator].[PRESENTATIONCOMMANDBARSECTION]
+)
+UNION ALL
+(
+SELECT
+	[SOURCE_ID] AS Id,
+    [ID] AS parent_id
+FROM
+[innovator].[PRESENTATIONCOMMANDBARSECTION]
+)
+
 ) AS t
 INNER JOIN
 [innovator].[ITEMTYPE] AS it
@@ -244,13 +261,13 @@ it.[id]=t.[id]
                 var tmpItem = items.getItemByIndex(i);
                 ret.Add(new SingleItem(tmpItem));
             }
-            depsCache = ret;
+            depsCache.Add(ConnSettings.GetHashCode(), ret);
 
             return ret;
         }
         public Innovator GetInnovator()
         {
-            return _inn;
+            return Inn;
         }
     }
 }

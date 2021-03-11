@@ -125,32 +125,27 @@ namespace InnoTool.Win
             }
         }
 
-        void BindDiffGrid(IEnumerable<DiffItem> diffs)
+        void BindDiffGrid(IEnumerable<DiffItem> items)
         {
-            gridCompare.DataSource = diffs;
-            for(int i = 1; i < gridCompare.ColumnCount; i++)
+            lblGridCompareCount.Text = $"{items.Count()} item(s) found";
+            gridCompare.Rows.Clear();
+            foreach (var i in items)
             {
-                try
+                gridCompare.Rows.Add(new object[] { i.Type, i.Name, i.ChangeType, i.ModifiedDate1, i.ModifiedDate2, i.CreatedDate1, i.CreatedDate2, i.Id, i.Package });
+                if (i.ChangeType != ItemChangeType.Deleted)
                 {
-                    gridCompare.Columns[$"g1c{i}"].DisplayIndex = i - 1;
+                    gridCompare.Rows[gridCompare.Rows.Count - 1].Tag = i;
                 }
-                catch (Exception)
-                {
-                }
-            }
-            foreach(DataGridViewRow r in gridCompare.Rows)
-            {
                 var color = Color.LightGreen;
-                var item = (DiffItem) r.DataBoundItem;
-                if (item.ChangeType == ItemChangeType.Deleted)
+                if (i.ChangeType == ItemChangeType.Deleted)
                 {
                     color = Color.LightSalmon;
                 }
-                else if (item.ChangeType == ItemChangeType.Modified)
+                else if (i.ChangeType == ItemChangeType.Modified)
                 {
                     color = Color.LightSkyBlue;
                 }
-                r.DefaultCellStyle.BackColor = color;
+                gridCompare.Rows[gridCompare.Rows.Count - 1].DefaultCellStyle.BackColor = color;
             }
         }
 
@@ -178,18 +173,15 @@ namespace InnoTool.Win
             
         }
 
-        void BindCheckGrid(IEnumerable<SingleItem> res)
+        void BindCheckGrid(IEnumerable<SingleItem> items)
         {
-            gridChanges.DataSource = res;
-            for (int i = 1; i < gridChanges.ColumnCount; i++)
+            lblGrigCheckCount.Text = $"{items.Count()} item(s) found";
+            gridChanges.Rows.Clear();
+            foreach (var i in items)
             {
-                try
-                {
-                    gridChanges.Columns[$"g2c{i}"].DisplayIndex = i - 1;
-                }
-                catch (Exception)
-                {
-                }
+                var r = new DataGridViewRow();
+                gridChanges.Rows.Add(new object[] { i.Type, i.Name, i.ModifiedDate, i.CreatedDate, i.Id, i.Package });
+                gridChanges.Rows[gridChanges.Rows.Count - 1].Tag = i;
             }
         }
 
@@ -235,6 +227,7 @@ namespace InnoTool.Win
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            lblGridCompareCount.Text = "";
             imgLoadingCompare.Visible = true;
             await Task.Run(() => LoadData());
             
@@ -304,6 +297,7 @@ namespace InnoTool.Win
                 MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            lblGrigCheckCount.Text = "";
             imgLoadingCheck.Visible = true;
             await Task.Run(() => LoadData2());
         }
@@ -351,8 +345,8 @@ namespace InnoTool.Win
             foreach(var r in grid.SelectedRows)
             {
                 var row = (DataGridViewRow)r;
-                var item = (IBaseItem)row.DataBoundItem;
-                if (string.IsNullOrWhiteSpace(item.Id))
+                var item = (IBaseItem)row.Tag;
+                if (string.IsNullOrWhiteSpace(item?.Id))
                 {
                     continue;
                 }
@@ -384,18 +378,12 @@ namespace InnoTool.Win
                     {
 
                         var row = (DataGridViewRow)r;
-                        var bi = (IBaseItem)row.DataBoundItem;
+                        var bi = (IBaseItem)row.Tag;
                         if (bi.Id != item.Id)
                         {
                             continue;
                         }
-
-                        var cellName = "g2c6";
-                        if (grid.Name.IndexOf("compare", StringComparison.InvariantCultureIgnoreCase) > -1)
-                        {
-                            cellName = "g1c9";
-                        }
-                        row.Cells[cellName].Value = item.Package;
+                        row.Cells[row.Cells.Count - 1].Value = item.Package;
                     }
                 }
                 grid.Refresh();
