@@ -36,21 +36,19 @@ namespace InnoTool.Win
             this.btnCancel = new System.Windows.Forms.Button();
             this.chkMoveItems = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.treeItems = new System.Windows.Forms.TreeView();
-            this.btnCheckUncheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listPackages
             // 
             this.listPackages.FormattingEnabled = true;
-            this.listPackages.Location = new System.Drawing.Point(409, 65);
+            this.listPackages.Location = new System.Drawing.Point(31, 68);
             this.listPackages.Name = "listPackages";
             this.listPackages.Size = new System.Drawing.Size(381, 355);
             this.listPackages.TabIndex = 0;
             // 
             // txtPackageName
             // 
-            this.txtPackageName.Location = new System.Drawing.Point(409, 36);
+            this.txtPackageName.Location = new System.Drawing.Point(31, 39);
             this.txtPackageName.Name = "txtPackageName";
             this.txtPackageName.Size = new System.Drawing.Size(267, 20);
             this.txtPackageName.TabIndex = 1;
@@ -58,7 +56,7 @@ namespace InnoTool.Win
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(682, 36);
+            this.btnCreate.Location = new System.Drawing.Point(304, 39);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(108, 23);
             this.btnCreate.TabIndex = 2;
@@ -68,7 +66,7 @@ namespace InnoTool.Win
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(682, 428);
+            this.btnAddItem.Location = new System.Drawing.Point(304, 431);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(108, 23);
             this.btnAddItem.TabIndex = 3;
@@ -78,7 +76,7 @@ namespace InnoTool.Win
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(409, 428);
+            this.btnCancel.Location = new System.Drawing.Point(31, 431);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 23);
             this.btnCancel.TabIndex = 4;
@@ -90,7 +88,7 @@ namespace InnoTool.Win
             // 
             this.chkMoveItems.AutoSize = true;
             this.chkMoveItems.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkMoveItems.Location = new System.Drawing.Point(596, 432);
+            this.chkMoveItems.Location = new System.Drawing.Point(218, 435);
             this.chkMoveItems.Name = "chkMoveItems";
             this.chkMoveItems.Size = new System.Drawing.Size(80, 17);
             this.chkMoveItems.TabIndex = 5;
@@ -100,38 +98,17 @@ namespace InnoTool.Win
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(409, 17);
+            this.label1.Location = new System.Drawing.Point(31, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Search for package";
             // 
-            // treeItems
-            // 
-            this.treeItems.CheckBoxes = true;
-            this.treeItems.Location = new System.Drawing.Point(38, 65);
-            this.treeItems.Name = "treeItems";
-            this.treeItems.Size = new System.Drawing.Size(348, 386);
-            this.treeItems.TabIndex = 8;
-            // 
-            // btnCheckUncheck
-            // 
-            this.btnCheckUncheck.Location = new System.Drawing.Point(38, 33);
-            this.btnCheckUncheck.Name = "btnCheckUncheck";
-            this.btnCheckUncheck.Size = new System.Drawing.Size(108, 23);
-            this.btnCheckUncheck.TabIndex = 9;
-            this.btnCheckUncheck.Tag = "1";
-            this.btnCheckUncheck.Text = "Uncheck all";
-            this.btnCheckUncheck.UseVisualStyleBackColor = true;
-            this.btnCheckUncheck.Click += new System.EventHandler(this.btnCheckUncheck_Click);
-            // 
             // AddToPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 481);
-            this.Controls.Add(this.btnCheckUncheck);
-            this.Controls.Add(this.treeItems);
+            this.ClientSize = new System.Drawing.Size(446, 467);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkMoveItems);
             this.Controls.Add(this.btnCancel);
@@ -160,7 +137,5 @@ namespace InnoTool.Win
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox chkMoveItems;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TreeView treeItems;
-        private System.Windows.Forms.Button btnCheckUncheck;
     }
 }

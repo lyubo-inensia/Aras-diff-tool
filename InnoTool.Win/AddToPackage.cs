@@ -32,20 +32,7 @@ namespace InnoTool.Win
         private void AddToPackage_Load(object sender, EventArgs e)
         {
             LoadPacks();
-            LoadItems();
         }
-        private void LoadItems()
-        {
-            var task = Task.Run(() =>
-            {
-                ItemsToAdd = innService.GetDependencies(ItemsToAdd);
-            })
-            .ContinueWith((t) =>
-            {
-                this.Invoke(new MethodInvoker(delegate { PopulateItemsGrid(ItemsToAdd); }));
-            });
-        }
-
         private TreeNode PopulateTreeNode(IBaseItem item, TreeNode node = null, HashSet<string> visited = null)
         {
             if (node == null)
@@ -75,16 +62,6 @@ namespace InnoTool.Win
 
             return node;
         }
-        private void PopulateItemsGrid(IEnumerable<IBaseItem> items)
-        {
-            treeItems.BeginUpdate();
-            treeItems.Nodes.Clear();
-            foreach (var item in items)
-            {
-                treeItems.Nodes.Add(PopulateTreeNode(item));
-            }
-            treeItems.EndUpdate();
-        }
         private void LoadPacks()
         {
             var task = Task.Run(() =>
@@ -106,26 +83,6 @@ namespace InnoTool.Win
         {
             Close();
         }
-
-        private List<IBaseItem> GetSelectedItems(TreeNodeCollection nodes, List<IBaseItem> ret = null)
-        {
-            if (ret == null)
-            {
-                ret = new List<IBaseItem>();
-            }
-            foreach (TreeNode n in nodes)
-            {
-                var item = (IBaseItem)n.Tag;
-                if (n.Checked && !ret.Any(i => i.Id == item.Id))
-                {
-                    ret.Add(item);
-                }
-                GetSelectedItems(n.Nodes, ret);
-            }
-
-
-            return ret;
-        }
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             if (listPackages.SelectedItem == null)
@@ -133,7 +90,7 @@ namespace InnoTool.Win
                 MessageBox.Show("No package selected");
                 return;
             }
-            var items = GetSelectedItems(treeItems.Nodes);
+            var items = ItemsToAdd.ToList();
             if (items.Count == 0)
             {
                 MessageBox.Show("No items selected.");
@@ -192,34 +149,6 @@ namespace InnoTool.Win
                 tmpPacks = tmpPacks.Where(p => p.Name.ToLower().Contains(s.ToLower())).ToList();
             }
             PopulatePackagesList(tmpPacks);
-        }
-
-        private void btnCheckUncheck_Click(object sender, EventArgs e)
-        {
-            var uncheck = false;
-            var label = "Uncheck all";
-            var c = btnCheckUncheck.Tag.ToString();
-            if (c == "1")
-            {
-                label = "Check All";
-                uncheck = true;
-                c = "0";
-            }
-            else
-            {
-                c = "1";
-            }
-            btnCheckUncheck.Tag = c;
-            btnCheckUncheck.Text = label;
-            ChangeChecked(treeItems.Nodes, !uncheck);
-        }
-        private void ChangeChecked(TreeNodeCollection nodes, bool isChecked)
-        {
-            foreach (TreeNode n in nodes)
-            {
-                n.Checked = isChecked;
-                ChangeChecked(n.Nodes, isChecked);
-            }
         }
 
     }

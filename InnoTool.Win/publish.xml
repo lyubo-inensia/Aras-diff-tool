@@ -6,7 +6,6 @@
 <PublishUrl>http://innotool.xyz/setup</PublishUrl>
 <Install>true</Install>
 <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-<ApplicationRevision>1</ApplicationRevision>
 <UpdateEnabled>true</UpdateEnabled>
 <UpdateRequired>false</UpdateRequired>
 <UpdateMode>Foreground</UpdateMode>
