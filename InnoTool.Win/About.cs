@@ -19,7 +19,15 @@ namespace InnoTool.Win
 
         private void About_Load(object sender, EventArgs e)
         {
-            lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            var v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            try
+            {
+                v = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString();
+            }
+            catch
+            {
+            }
+            lblVersion.Text = v;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
